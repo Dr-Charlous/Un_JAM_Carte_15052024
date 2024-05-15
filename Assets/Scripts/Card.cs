@@ -9,6 +9,18 @@ public class Card : MonoBehaviour
 {
     public bool IsBeingDropped { get; set; }
 
+    public Card ChildCard
+    {
+        get => _childCard;
+        set
+        {
+            _childCard = value;
+            
+            _boxCollider2D.offset = new Vector2(_boxCollider2D.offset.x, value != null ? 1 : 0);
+            _boxCollider2D.size = new Vector2(_boxCollider2D.size.x, value != null ? 0.5f : 2.5f);
+        }
+    }
+
     [Header("References")] 
     [SerializeField] private BoxCollider2D _boxCollider2D;
     [SerializeField] private Transform _childTransform;
@@ -27,57 +39,64 @@ public class Card : MonoBehaviour
     {
         if (IsBeingDropped)
         {
-            Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, _boxCollider2D.size, 0);
+            Collider2D[] hits = Physics2D.OverlapBoxAll(_boxCollider2D.bounds.center, _boxCollider2D.size, 0);
 
-            bool landedOnCard = false;
+            bool hasNewParent = false;
 
             foreach (Collider2D hit in hits)
             {
-                if (hit != _boxCollider2D)
+                if (hit == _boxCollider2D)
                 {
-                    Card cardParent = hit.GetComponent<Card>();
-
-                    if (cardParent._childCard == null && hit != _childCard)
-                    {
-                        transform.parent = hit.transform;
-
-                        if (_parentCard != null)
-                        {
-                            _parentCard._childCard = null;
-                        }
-                        
-                        cardParent._childCard = this;
-                        _parentCard = cardParent;
-
-                        transform.position = cardParent._childTransform.position;
-
-                        landedOnCard = true;
-
-                        // cardParent.CancelCardScale();
-                    }
+                    continue;
                 }
+
+                if (!hit.TryGetComponent(out Card card))
+                {
+                    continue;
+                }
+
+                if (card == _childCard)
+                {
+                    continue;
+                }
+
+                if (card.ChildCard != null)
+                {
+                    continue;
+                }
+
+                _parentCard = card;
+
+                transform.parent = card._childTransform;
+                transform.position = card._childTransform.position;
+
+                _parentCard.ChildCard = this;
+
+                // CancelCardScale();
+                hasNewParent = true;
+
+                break;
             }
 
-            if (landedOnCard == false)
+            if (hasNewParent == false)
             {
-                transform.parent = null;
-
                 if (_parentCard != null)
                 {
-                    _parentCard._childCard = null;
+                    _parentCard.ChildCard = null;
                 }
+
                 _parentCard = null;
+                transform.parent = null;
             }
-            
-            // CancelCardScale();
+
             IsBeingDropped = false;
         }
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, _boxCollider2D.size);
+        Gizmos.DrawWireCube(_boxCollider2D.bounds.center, _boxCollider2D.size);
     }
 
     public void DoHoverCardScale()

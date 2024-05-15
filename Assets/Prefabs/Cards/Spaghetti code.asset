@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NameCard: Spaghetti code
   SpriteCard: {fileID: 0}
-  ColorCard: {r: 0, g: 0, b: 0, a: 0}
+  ColorCard: {r: 1, g: 0.68301886, b: 0.68301886, a: 1}
   UseNumber: 0
   CostSell: 1
