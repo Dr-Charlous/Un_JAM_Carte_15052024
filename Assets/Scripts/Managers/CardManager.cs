@@ -6,6 +6,9 @@ namespace Managers
 {
     public class CardManager : MonoBehaviour
     {
+        [Header("References")] 
+        [SerializeField] private LayerMask _cardLayer;
+        
         [Header("Hover Tween Values")] 
         [SerializeField] private float _hoverTweenDuration;
         [SerializeField] private float _hoverTweenStrength;
@@ -22,6 +25,7 @@ namespace Managers
         public float HoverTweenDuration => _hoverTweenDuration;
 
         public float HoverTweenStrength => _hoverTweenStrength;
+        public LayerMask CardLayer => _cardLayer;
 
         #endregion
     }

@@ -43,10 +43,9 @@ public class PlayerController : MonoBehaviour
         return _camera.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    private Card CardDetected()
+    private void CardDetected()
     {
         Vector2 currentPos = GetMousePositionWorld();
-
         RaycastHit2D hit = Physics2D.Raycast(currentPos, Vector2.zero);
 
         if (hit.collider != null)
@@ -55,12 +54,12 @@ public class PlayerController : MonoBehaviour
             {
                 if (_isHoldingCard == false)
                 {
-                    card.DoHoverCardScale();
+                    // card.DoHoverCardScale();
                 }
 
                 _lastCardTouched = card;
 
-                return card;
+                return;
             }
         }
 
@@ -68,11 +67,9 @@ public class PlayerController : MonoBehaviour
         {
             if (_isHoldingCard == false)
             {
-                _lastCardTouched.CancelCardScale();
+                // _lastCardTouched.CancelCardScale();
             }
         }
-
-        return null;
     }
 
     private void InitDrag()
@@ -90,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
                 _isHoldingCard = true;
 
-                _currentCard.DoMoveCardScale();
+                // _currentCard.DoMoveCardScale();
             }
         }
     }
@@ -108,7 +105,9 @@ public class PlayerController : MonoBehaviour
     private void EndDrag()
     {
         _isHoldingCard = false;
+        _currentCard.IsBeingDropped = true;
 
-        _currentCard.CancelCardScale().OnComplete(() => _currentCard = null);
+        // _currentCard.CancelCardScale();
+        _currentCard = null;
     }
 }
