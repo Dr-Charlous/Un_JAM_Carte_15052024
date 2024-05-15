@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NameCard: Card Name
   SpriteCard: {fileID: 21300000, guid: 14a54f06de030fd4b86f7e543f5d3929, type: 3}
-  ColorCard: {r: 0.36862746, g: 0.62352943, b: 0.72156864, a: 1}
+  ColorCard: {r: 0.45490196, g: 0.78039217, b: 0.7294118, a: 1}
   UseNumber: 1
   CostSell: 10

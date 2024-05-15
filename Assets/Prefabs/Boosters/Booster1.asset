@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a813e4f412a8e76448aed2cb1408e307, type: 3}
+  m_Name: Booster1
+  m_EditorClassIdentifier: 
+  _cardPrefab: {fileID: 5063705198716939421, guid: 8199d043afa77bd4884d9fa9ab0c65e6, type: 3}
+  _numberDrop: 0
+  CardsDropScript:
+  - {fileID: 11400000, guid: a29e4cd4d1b71284cac246c7191aaba0, type: 2}
