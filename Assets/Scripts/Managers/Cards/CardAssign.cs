@@ -5,7 +5,7 @@ using TMPro;
 
 public class CardAssign : MonoBehaviour
 {
-    public CardID CardID;
+    public CardData CardData;
 
     [SerializeField] TextMeshProUGUI _textComponent;
     [SerializeField] SpriteRenderer _spriteRendererColor;
@@ -14,12 +14,12 @@ public class CardAssign : MonoBehaviour
     private void Start()
     {
         if (_textComponent != null)
-            _textComponent.text = CardID.NameCard;
+            _textComponent.text = CardData.NameCard;
 
         if (_spriteRendererColor != null)
-            _spriteRendererColor.color = CardID.ColorCard;
+            _spriteRendererColor.color = CardData.ColorCard;
 
-        if (_spriteRendererSprite != null && CardID.SpriteCard != null)
-            _spriteRendererSprite.sprite = CardID.SpriteCard;
+        if (_spriteRendererSprite != null && CardData.SpriteCard != null)
+            _spriteRendererSprite.sprite = CardData.SpriteCard;
     }
 }

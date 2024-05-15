@@ -6,7 +6,7 @@ public class CardBooster : ScriptableObject
 {
     [SerializeField] GameObject _cardPrefab;
     [SerializeField] int _numberDrop;
-    public CardID[] CardsDropScript;
+    public CardData[] CardsDropScript;
 
     public bool CardDropper()
     {
@@ -16,7 +16,7 @@ public class CardBooster : ScriptableObject
 
             int rnd = UnityEngine.Random.Range(0, CardsDropScript.Length);
 
-            obj.GetComponent<CardAssign>().CardID = CardsDropScript[rnd];
+            obj.GetComponent<CardAssign>().CardData = CardsDropScript[rnd];
 
             _numberDrop--;
             return true;
