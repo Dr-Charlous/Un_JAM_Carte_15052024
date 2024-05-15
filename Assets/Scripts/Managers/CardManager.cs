@@ -1,15 +1,28 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Managers
 {
     public class CardManager : MonoBehaviour
     {
-        [Header("End Move Tween Values")] 
-        [SerializeField] private float _endMovePunchDuration;
-        [SerializeField] private float _endMovePunchStrength;
+        [Header("Hover Tween Values")] 
+        [SerializeField] private float _hoverTweenDuration;
+        [SerializeField] private float _hoverTweenStrength;
+        
+        [Header("Move Tween Values")] 
+        [SerializeField] private float _moveTweenDuration;
+        [SerializeField] private float _moveTweenStrength;
 
-        public float EndMovePunchDuration => _endMovePunchDuration;
-        public float EndMovePunchStrength => _endMovePunchStrength;
+        #region Properties
+
+        public float MoveTweenDuration => _moveTweenDuration;
+        public float MoveTweenStrength => _moveTweenStrength;
+
+        public float HoverTweenDuration => _hoverTweenDuration;
+
+        public float HoverTweenStrength => _hoverTweenStrength;
+
+        #endregion
     }
 }

@@ -8,8 +8,10 @@ using UnityEngine.EventSystems;
 public class PlayerController : MonoBehaviour
 {
     private Card _currentCard;
-    private Vector2 _currentMousePosWorld;
+    private Card _lastCardTouched;
+    private Vector2 _currentMousePosOffset;
     private Camera _camera;
+    private bool _isHoldingCard;
 
     private void Start()
     {
@@ -32,35 +34,81 @@ public class PlayerController : MonoBehaviour
         {
             EndDrag();
         }
-    }
-    
-    private void InitDrag()
-    {
-        _currentMousePosWorld = _camera.ScreenToWorldPoint(Input.mousePosition);
 
-        RaycastHit2D hit = Physics2D.Raycast(_currentMousePosWorld, Vector2.zero);
+        CardDetected();
+    }
+
+    private Vector2 GetMousePositionWorld()
+    {
+        return _camera.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    private Card CardDetected()
+    {
+        Vector2 currentPos = GetMousePositionWorld();
+
+        RaycastHit2D hit = Physics2D.Raycast(currentPos, Vector2.zero);
 
         if (hit.collider != null)
         {
             if (hit.collider.TryGetComponent(out Card card))
             {
+                if (_isHoldingCard == false)
+                {
+                    card.DoHoverCardScale();
+                }
+
+                _lastCardTouched = card;
+
+                return card;
+            }
+        }
+
+        if (_lastCardTouched != null)
+        {
+            if (_isHoldingCard == false)
+            {
+                _lastCardTouched.CancelCardScale();
+            }
+        }
+
+        return null;
+    }
+
+    private void InitDrag()
+    {
+        Vector2 currentPos = GetMousePositionWorld();
+
+        RaycastHit2D hit = Physics2D.Raycast(currentPos, Vector2.zero);
+
+        if (hit.collider != null)
+        {
+            if (hit.collider.TryGetComponent(out Card card))
+            {
+                _currentMousePosOffset = (Vector2)hit.transform.position - hit.point;
                 _currentCard = card;
+
+                _isHoldingCard = true;
+
+                _currentCard.DoMoveCardScale();
             }
         }
     }
 
     private void Drag()
     {
-        _currentMousePosWorld = _camera.ScreenToWorldPoint(Input.mousePosition);
-        
+        Vector2 currentPos = GetMousePositionWorld() + _currentMousePosOffset;
+
         if (_currentCard != null)
         {
-            _currentCard.transform.position = _currentMousePosWorld;
+            _currentCard.transform.position = currentPos;
         }
     }
-    
+
     private void EndDrag()
     {
-        _currentCard.PunchScale().OnComplete(()=> _currentCard = null);
+        _isHoldingCard = false;
+
+        _currentCard.CancelCardScale().OnComplete(() => _currentCard = null);
     }
 }

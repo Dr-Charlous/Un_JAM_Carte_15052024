@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5b9729bc3fdff4fba1d1e52f23affa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardID: {fileID: 0}
+  CardID: {fileID: 11400000, guid: a29e4cd4d1b71284cac246c7191aaba0, type: 2}
   _textComponent: {fileID: 1815827019820369336}
   _spriteRendererColor: {fileID: 1290414502044553986}
   _spriteRendererSprite: {fileID: 1290414502044553986}
