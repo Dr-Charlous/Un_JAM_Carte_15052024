@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8b663536caef270428f7e5a47a33576f, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8b663536caef270428f7e5a47a33576f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,6 +52,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8b663536caef270428f7e5a47a33576f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bdc57f39cff9a54f940c628c671ab82, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 8b663536caef270428f7e5a47a33576f, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ecf758b4348960b4c9db841bf2a6a860, type: 2}
     - target: {fileID: 919132149155446097, guid: 8b663536caef270428f7e5a47a33576f, type: 3}
       propertyPath: m_Name
       value: PC_Screen_01 Variant
