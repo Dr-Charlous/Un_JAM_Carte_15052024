@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1902c4f7b124687419d72fd5fdbc4387, type: 3}
-  m_Name: "M\xE9canique"
+  m_Script: {fileID: 11500000, guid: a813e4f412a8e76448aed2cb1408e307, type: 3}
+  m_Name: BoosterCard Character
   m_EditorClassIdentifier: 
-  NameCard: "M\xE9canique"
-  SpriteCard: {fileID: 0}
-  ColorCard: {r: 0, g: 0, b: 0, a: 0}
-  UseNumber: 1
-  CostSell: 2
+  _cardPrefab: {fileID: 0}
+  _numberDrop: 0
+  CardsDropScript: []
