@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1902c4f7b124687419d72fd5fdbc4387, type: 3}
+  m_Name: Proto Graphique
+  m_EditorClassIdentifier: 
+  NameCard: Proto Graphique
+  SpriteCard: {fileID: 0}
+  ColorCard: {r: 0, g: 0, b: 0, a: 0}
+  UseNumber: 0
+  CostSell: 4

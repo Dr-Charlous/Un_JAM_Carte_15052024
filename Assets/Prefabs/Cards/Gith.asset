@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1902c4f7b124687419d72fd5fdbc4387, type: 3}
-  m_Name: Card1
+  m_Name: Gith
   m_EditorClassIdentifier: 
-  NameCard: Card Name
-  SpriteCard: {fileID: 21300000, guid: 14a54f06de030fd4b86f7e543f5d3929, type: 3}
-  ColorCard: {r: 0.45490196, g: 0.78039217, b: 0.7294118, a: 1}
+  NameCard: Gith
+  SpriteCard: {fileID: 0}
+  ColorCard: {r: 0, g: 0, b: 0, a: 0}
   UseNumber: 1
-  CostSell: 10
+  CostSell: 2
