@@ -9,9 +9,7 @@ namespace Managers
         [SerializeField] private float _endMovePunchDuration;
         [SerializeField] private float _endMovePunchStrength;
 
-        public void EndMovePunch(Card card)
-        {
-            card.transform.DOPunchScale(Vector3.one * _endMovePunchStrength, _endMovePunchDuration);
-        }
+        public float EndMovePunchDuration => _endMovePunchDuration;
+        public float EndMovePunchStrength => _endMovePunchStrength;
     }
 }

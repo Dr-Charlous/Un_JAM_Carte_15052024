@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using DG.Tweening;
 using Managers;
 using UnityEngine;
@@ -22,12 +23,12 @@ public class PlayerController : MonoBehaviour
             InitDrag();
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && _currentCard != null)
         {
             Drag();
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && _currentCard != null)
         {
             EndDrag();
         }
@@ -60,7 +61,6 @@ public class PlayerController : MonoBehaviour
     
     private void EndDrag()
     {
-        GameManager.Instance.CardManager.EndMovePunch(_currentCard);
-        _currentCard = null;
+        _currentCard.PunchScale().OnComplete(()=> _currentCard = null);
     }
 }
