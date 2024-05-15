@@ -8,18 +8,7 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     public bool IsBeingDropped { get; set; }
-
-    public Card ChildCard
-    {
-        get => _childCard;
-        set
-        {
-            _childCard = value;
-            
-            _boxCollider2D.offset = new Vector2(_boxCollider2D.offset.x, value != null ? 1 : 0);
-            _boxCollider2D.size = new Vector2(_boxCollider2D.size.x, value != null ? 0.5f : 2.5f);
-        }
-    }
+    public Card ChildCard { get; set; }
 
     [Header("References")] 
     [SerializeField] private BoxCollider2D _boxCollider2D;
@@ -27,7 +16,6 @@ public class Card : MonoBehaviour
     [SerializeField] private Transform _objectToScale;
 
     private Vector3 _initScale;
-    private Card _childCard;
     private Card _parentCard;
 
     private void Start()
@@ -37,6 +25,11 @@ public class Card : MonoBehaviour
 
     private void Update()
     {
+        HandleBeingDropped();
+    }
+
+    private void HandleBeingDropped()
+    {
         if (IsBeingDropped)
         {
             Collider2D[] hits = Physics2D.OverlapBoxAll(_boxCollider2D.bounds.center, _boxCollider2D.size, 0);
@@ -45,24 +38,14 @@ public class Card : MonoBehaviour
 
             foreach (Collider2D hit in hits)
             {
-                if (hit == _boxCollider2D)
+                if (CheckForCards(hit, out Card card))
                 {
                     continue;
                 }
 
-                if (!hit.TryGetComponent(out Card card))
+                if (_parentCard != null)
                 {
-                    continue;
-                }
-
-                if (card == _childCard)
-                {
-                    continue;
-                }
-
-                if (card.ChildCard != null)
-                {
-                    continue;
+                    DiscardParenting();
                 }
 
                 _parentCard = card;
@@ -71,6 +54,9 @@ public class Card : MonoBehaviour
                 transform.position = card._childTransform.position;
 
                 _parentCard.ChildCard = this;
+
+                _parentCard._boxCollider2D.offset = new Vector2(_boxCollider2D.offset.x, 1);
+                _parentCard._boxCollider2D.size = new Vector2(_boxCollider2D.size.x, 0.5f);
 
                 // CancelCardScale();
                 hasNewParent = true;
@@ -82,8 +68,11 @@ public class Card : MonoBehaviour
             {
                 if (_parentCard != null)
                 {
-                    _parentCard.ChildCard = null;
+                    DiscardParenting();
                 }
+
+                _boxCollider2D.offset = new Vector2(_boxCollider2D.offset.x, ChildCard == null ? 0 : 1);
+                _boxCollider2D.size = new Vector2(_boxCollider2D.size.x, ChildCard == null ? 2.5f : 0.5f);
 
                 _parentCard = null;
                 transform.parent = null;
@@ -91,6 +80,41 @@ public class Card : MonoBehaviour
 
             IsBeingDropped = false;
         }
+    }
+
+    private bool CheckForCards(Collider2D hit, out Card card)
+    {
+        card = null;
+            
+        if (hit == _boxCollider2D)
+        {
+            return true;
+        }
+
+        if (!hit.TryGetComponent(out card))
+        {
+            return true;
+        }
+
+        if (card == ChildCard)
+        {
+            return true;
+        }
+
+        if (card.ChildCard != null)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private void DiscardParenting()
+    {
+        _parentCard._boxCollider2D.offset = new Vector2(_boxCollider2D.offset.x, 0);
+        _parentCard._boxCollider2D.size = new Vector2(_boxCollider2D.size.x, 2.5f);
+
+        _parentCard.ChildCard = null;
     }
 
     private void OnDrawGizmos()
