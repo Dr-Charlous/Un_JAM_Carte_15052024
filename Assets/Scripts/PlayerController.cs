@@ -1,4 +1,6 @@
 ﻿using System;
+using DG.Tweening;
+using Managers;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -39,7 +41,6 @@ public class PlayerController : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Debug.Log(hit.collider.name);
             if (hit.collider.TryGetComponent(out Card card))
             {
                 _currentCard = card;
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour
     
     private void EndDrag()
     {
+        GameManager.Instance.CardManager.EndMovePunch(_currentCard);
         _currentCard = null;
     }
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MatteoBenaissaLibrary.SingletonClassBase
+namespace LuniLibrary.SingletonClassBase
 {
     public abstract class Singleton<TClass> : MonoBehaviour where TClass : class
     {
