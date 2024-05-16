@@ -55,11 +55,11 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 7ba0cd09d3a772a479050ce0b54f818a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 38daf7374982f81459c40c145f8b265e, type: 2}
+      objectReference: {fileID: 2100000, guid: 4e392958523cc0149a909d9f2bfb709f, type: 2}
     - target: {fileID: -7511558181221131132, guid: 7ba0cd09d3a772a479050ce0b54f818a, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 5bb8f80c362d70a46843f54b266ac64c, type: 2}
+      objectReference: {fileID: 2100000, guid: 00d6dc2a2837580429c65600422539cc, type: 2}
     - target: {fileID: 919132149155446097, guid: 7ba0cd09d3a772a479050ce0b54f818a, type: 3}
       propertyPath: m_Name
       value: Pillow Variant

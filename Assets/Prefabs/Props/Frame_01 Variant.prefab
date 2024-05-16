@@ -55,15 +55,15 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: bddd34b8e3fba234894f8105fe300bc4, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: dcab60648e21274458aba353f02fe1eb, type: 2}
+      objectReference: {fileID: 2100000, guid: 152e953fd2351494bb3c2ae6d701ffea, type: 2}
     - target: {fileID: -7511558181221131132, guid: bddd34b8e3fba234894f8105fe300bc4, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: fae189b0a5cd57449a26bc67bc24c5e9, type: 2}
+      objectReference: {fileID: 2100000, guid: 9bc50467b94d59b439d056d6f515ef5b, type: 2}
     - target: {fileID: -7511558181221131132, guid: bddd34b8e3fba234894f8105fe300bc4, type: 3}
       propertyPath: m_Materials.Array.data[3]
       value: 
-      objectReference: {fileID: 2100000, guid: 5bb8f80c362d70a46843f54b266ac64c, type: 2}
+      objectReference: {fileID: 2100000, guid: 00d6dc2a2837580429c65600422539cc, type: 2}
     - target: {fileID: 919132149155446097, guid: bddd34b8e3fba234894f8105fe300bc4, type: 3}
       propertyPath: m_Name
       value: Frame_01 Variant
