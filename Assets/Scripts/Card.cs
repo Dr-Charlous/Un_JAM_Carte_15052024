@@ -15,18 +15,18 @@ public class Card : MonoBehaviour
     public Card ParentCard { get; private set; }
     public Vector2 InitPos { get; set; }
 
-    [Header("References")] 
+    [Header("References")]
     [SerializeField] private BoxCollider2D _boxCollider2D;
     [SerializeField] private Transform _childTransform;
-    
-    private readonly Tuple<float, float> _normalCollider = new Tuple<float, float>(0, 2.1f); 
-    private readonly Tuple<float, float> _reducedCollider = new Tuple<float, float>(0.8f, 0.45f); 
+
+    private readonly Tuple<float, float> _normalCollider = new Tuple<float, float>(0, 2.1f);
+    private readonly Tuple<float, float> _reducedCollider = new Tuple<float, float>(0.8f, 0.45f);
 
     private void Start()
     {
         CanMove = true;
         CanDropCardOnThis = true;
-        
+
         ChangeCollider(_normalCollider.Item1, _normalCollider.Item2);
     }
 
@@ -47,20 +47,22 @@ public class Card : MonoBehaviour
             {
                 if (hit.TryGetComponent(out ShopManager shop))
                 {
-                    shop.Shop(GetChildren(this));
+                    DiscardParenting();
+                    List<CardAssign> children = GameManager.Instance.CardManager.GetAllChildren(this);
+                    shop.Shop(children);
                     IsBeingDropped = false;
 
                     return;
                 }
-                
+
                 if (hit.CompareTag("Wall"))
                 {
                     transform.position = InitPos;
                     IsBeingDropped = false;
-                    
+
                     return;
                 }
-                
+
                 if (CheckForCards(hit, out Card card))
                 {
                     continue;
@@ -140,7 +142,7 @@ public class Card : MonoBehaviour
     private bool CheckForCards(Collider2D hit, out Card card)
     {
         card = null;
-            
+
         if (hit == _boxCollider2D)
         {
             return true;
@@ -166,12 +168,14 @@ public class Card : MonoBehaviour
 
     private void DiscardParenting()
     {
-        ParentCard.ChangeCollider(_normalCollider.Item1,_normalCollider.Item2);
+        if (ParentCard != null)
+        {
+            ParentCard.ChangeCollider(_normalCollider.Item1, _normalCollider.Item2);
+            ParentCard.ChildCard = null;
+            HandleCombo(ParentCard);
+        }
+
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-        
-        ParentCard.ChildCard = null;
-        
-        HandleCombo(ParentCard);
     }
 
     private void OnDrawGizmos()

@@ -455,6 +455,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5289936037837254976, guid: ace88a4c3cf78194a8f90be9f09e3285, type: 3}
+      propertyPath: _interactiveLayers.m_Bits
+      value: 72
+      objectReference: {fileID: 0}
     - target: {fileID: 6331697738659926344, guid: ace88a4c3cf78194a8f90be9f09e3285, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -725,11 +729,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3851970886030517514, guid: 92d7a9ab7ab86f346bfdbe6d1503861a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3.21
       objectReference: {fileID: 0}
     - target: {fileID: 3851970886030517514, guid: 92d7a9ab7ab86f346bfdbe6d1503861a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.01
       objectReference: {fileID: 0}
     - target: {fileID: 3851970886030517514, guid: 92d7a9ab7ab86f346bfdbe6d1503861a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -763,6 +767,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5806342352950243092, guid: 92d7a9ab7ab86f346bfdbe6d1503861a, type: 3}
+      propertyPath: BoosterData
+      value: 
+      objectReference: {fileID: 11400000, guid: 015f59809d379244aaa568058f34d6cd, type: 2}
     - target: {fileID: 5806342352950243092, guid: 92d7a9ab7ab86f346bfdbe6d1503861a, type: 3}
       propertyPath: _boosterData
       value: 
@@ -1028,7 +1036,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48adba7f9371d143bd98f71eec83359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardAssignMoney: {fileID: 3888255423657878243, guid: 0d31d7ff2db00414a8a0fdae62837ba9, type: 3}
+  _cardDataMoney: {fileID: 11400000, guid: 0774cb1f5920a954e9fba97d99a1fb9f, type: 2}
+  _boosterData: {fileID: 11400000, guid: 015f59809d379244aaa568058f34d6cd, type: 2}
   _cardPrefab: {fileID: 4361350267299786379, guid: 0d31d7ff2db00414a8a0fdae62837ba9, type: 3}
   _boosterPrefab: {fileID: 6949328763987883628, guid: 92d7a9ab7ab86f346bfdbe6d1503861a, type: 3}
 --- !u!114 &9040021340916745591

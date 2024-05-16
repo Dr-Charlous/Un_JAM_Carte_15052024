@@ -5,18 +5,20 @@ using DG.Tweening;
 
 public class BoosterAssign : MonoBehaviour
 {
+    public CardBooster BoosterData;
+
     [SerializeField] GameObject _cardPrefab;
-    [SerializeField] CardBooster _boosterData;
+
     int _dropNumber;
 
     private void Start()
     {
-        _dropNumber = Random.Range(_boosterData.NumberDropMin, _boosterData.NumberDropMax+1);
+        _dropNumber = Random.Range(BoosterData.NumberDropMin, BoosterData.NumberDropMax+1);
     }
 
     private void OnMouseDown()
     {
-        _dropNumber = _boosterData.CardDropper(_cardPrefab, _dropNumber);
+        _dropNumber = BoosterData.CardDropper(_cardPrefab, _dropNumber);
         if (_dropNumber <= 0)
             Destroy(gameObject);
     }
