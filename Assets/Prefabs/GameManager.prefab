@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6331697738659926344}
   - component: {fileID: 3050307645457765336}
   - component: {fileID: 5289936037837254976}
+  - component: {fileID: 1480935021226105092}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPersistant: 0
   <CardManager>k__BackingField: {fileID: 5289936037837254976}
-  <FusionManager>k__BackingField: {fileID: 0}
+  <FusionManager>k__BackingField: {fileID: 1480935021226105092}
 --- !u!114 &5289936037837254976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,3 +68,18 @@ MonoBehaviour:
   _hoverTweenStrength: 1.1
   _moveTweenDuration: 0.1
   _moveTweenStrength: 1.15
+--- !u!114 &1480935021226105092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3710491781681646101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7608fadf79a2f694eb7c983ad1dd3804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FusionDatas:
+  - {fileID: 11400000, guid: 881c035ce1949bb43a6ba7212b635019, type: 2}
+  _cardPrefab: {fileID: 4361350267299786379, guid: 0d31d7ff2db00414a8a0fdae62837ba9, type: 3}

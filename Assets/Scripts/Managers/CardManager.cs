@@ -40,7 +40,7 @@ namespace Managers
             return GetHigherStackParent(card.ParentCard);
         }
 
-        public Card[] GetAllChildren(Card parentCard)
+        public List<CardAssign> GetAllChildren(Card parentCard)
         {
             List<Card> allChildren = new List<Card>();
             Card currentCard = parentCard.ChildCard;
@@ -52,16 +52,20 @@ namespace Managers
                 allChildren.Add(currentCard);
                 currentCard = currentCard.ChildCard;
             }
-            
-            Card[] children = allChildren.ToArray();
-            
-            for (int index = 0; index < children.Length; index++)
+
+            List<CardAssign> cardsAssigns = new List<CardAssign>();
+
+            for (var index = 0; index < allChildren.Count; index++)
             {
-                Card child = children[index];
-                child.transform.position = new Vector3(child.transform.position.x, child.transform.position.y,  child.transform.position.z - 0.1f * index);
+                Card child = allChildren[index];
+                child.transform.position = new Vector3(child.transform.position.x, child.transform.position.y,
+                    child.transform.position.z - 0.1f * index);
+                
+                cardsAssigns.Add(child.GetComponent<CardAssign>());
             }
 
-            return children;
+
+            return cardsAssigns;
         }
     }
 }

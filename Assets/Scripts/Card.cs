@@ -26,14 +26,30 @@ public class Card : MonoBehaviour
 
     private void Update()
     {
-        HandleBeingDropped();
+        HandleBeingDroppedOnCard();
+        HandleBeingDroppedOnShop();
     }
 
-    private void HandleBeingDropped()
+    private void HandleBeingDroppedOnShop()
     {
         if (IsBeingDropped)
         {
             Collider2D[] hits = Physics2D.OverlapBoxAll(_boxCollider2D.bounds.center, _boxCollider2D.size, 0);
+
+            foreach (Collider2D hit in hits)
+            {
+                
+            }
+
+            IsBeingDropped = false;
+        }
+    }
+
+    private void HandleBeingDroppedOnCard()
+    {
+        if (IsBeingDropped)
+        {
+            Collider2D[] hits = Physics2D.OverlapBoxAll(_boxCollider2D.bounds.center, _boxCollider2D.size, 0, GameManager.Instance.CardManager.CardLayer);
 
             bool hasNewParent = false;
 
@@ -70,16 +86,20 @@ public class Card : MonoBehaviour
                 transform.parent = null;
             }
 
-            Card higherParent = GameManager.Instance.CardManager.GetHigherStackParent(this);
+            HandleCombo();
 
-            Card[] allChild = GameManager.Instance.CardManager.GetAllChildren(higherParent);
-            for (var index = 0; index < allChild.Length; index++)
-            {
-                var child = allChild[index];
-                child.transform.position = new Vector3(child.transform.position.x, child.transform.position.y,  child.transform.position.z - 0.1f * index);
-            }
-            
             IsBeingDropped = false;
+        }
+    }
+
+    private void HandleCombo()
+    {
+        Card higherParent = GameManager.Instance.CardManager.GetHigherStackParent(this);
+        List<CardAssign> allChild = GameManager.Instance.CardManager.GetAllChildren(higherParent);
+
+        if (allChild.Count > 1)
+        {
+            GameManager.Instance.FusionManager.HandleFusion(allChild);
         }
     }
 

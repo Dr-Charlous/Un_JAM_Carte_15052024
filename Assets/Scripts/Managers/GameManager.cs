@@ -1,5 +1,6 @@
 ﻿using System;
 using LuniLibrary.SingletonClassBase;
+using Managers.Fusions;
 using UnityEngine;
 
 namespace Managers

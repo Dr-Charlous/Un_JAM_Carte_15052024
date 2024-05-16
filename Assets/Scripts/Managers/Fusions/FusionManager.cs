@@ -1,60 +1,78 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
-public class FusionManager : MonoBehaviour
+namespace Managers.Fusions
 {
-
-    public FusionData[] FusionDatas;
-
-    [SerializeField] GameObject _cardPrefab;
-
-    public void CheckFusion(CardAssign[] cardsAssign)
+    public class FusionManager : MonoBehaviour
     {
-        bool isValid = false;
-        int k = -1;
+        [field:SerializeField] public FusionData[] FusionDatas { get; private set; }
 
-        for (int i = 0; i < FusionDatas.Length; i++)
+        [SerializeField] GameObject _cardPrefab;
+        
+        public void HandleFusion(List<CardAssign> cards)
         {
-            bool isEveryOne = true;
-
-            for (int j = 0; j < cardsAssign.Length; j++)
+            foreach (FusionData currentFusion in FusionDatas)
             {
-                if (FusionDatas[i].Recipe[j] == cardsAssign[j].CardData)
-                    continue;
-                else
-                    isEveryOne = false;
+                int currentCardsNb = 0;
+                List<CardData> conditions = new List<CardData>(currentFusion.Recipe.Count);
+
+                foreach (CardAssign card in cards)
+                {
+                    foreach (CardData condition in currentFusion.Recipe)
+                    {
+                        if (conditions.Contains(condition))
+                        {
+                            continue;
+                            
+                        }
+                        if (condition != card.CardData)
+                        {
+                            continue;
+                        }
+                        
+                        conditions.Add(condition);
+
+                        currentCardsNb++;
+                        
+                        break;
+                    }
+                    
+
+                    if (CheckForCardNb(currentCardsNb, currentFusion))
+                    {
+                        break;
+                    }
+                }
+
+                if (CheckForCardNb(currentCardsNb, currentFusion))
+                {
+                    StartCoroutine(MakeFusion(cards, currentFusion));
+                }
+            }
+        }
+
+        private bool CheckForCardNb(int currentCardsNb, FusionData currentFusion)
+        {
+            return currentCardsNb >= currentFusion.Recipe.Count;
+        }
+
+        private IEnumerator MakeFusion(List<CardAssign> cards, FusionData currentFusion)
+        {
+            yield return new WaitForSeconds(currentFusion.Time);
+            
+            foreach (CardAssign card in cards)
+            {
+                StopAllCoroutines();
+                Destroy(card.gameObject);
             }
 
-            if (isEveryOne)
+            foreach (CardData card in currentFusion.Result)
             {
-                isValid = true;
-                k = i;
-                break;
+                GameObject newCard = Instantiate(_cardPrefab);
+                newCard.GetComponent<CardAssign>().CardData = card;
             }
-            else
-                continue;
-        }
-
-        if (isValid)
-        {
-            StartCoroutine(WaitSpawn(cardsAssign, FusionDatas[k]));
-        }
-    }
-
-    IEnumerator WaitSpawn(CardAssign[] cardsAssign, FusionData fusionData)
-    {
-        yield return new WaitForSeconds(fusionData.Time);
-
-        for (int i = 0; i < cardsAssign.Length; i++)
-        {
-            Destroy(cardsAssign[i].gameObject);
-        }
-
-        for (int i = 0; i < fusionData.Result.Length; i++)
-        {
-            GameObject obj = Instantiate(_cardPrefab);
-            obj.GetComponent<CardAssign>().CardData = fusionData.Result[i];
         }
     }
 }
