@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -28,5 +29,39 @@ namespace Managers
         public LayerMask CardLayer => _cardLayer;
 
         #endregion
+
+        public Card GetHigherStackParent(Card card)
+        {
+            if (card.ParentCard == null)
+            {
+                return card;
+            }
+
+            return GetHigherStackParent(card.ParentCard);
+        }
+
+        public Card[] GetAllChildren(Card parentCard)
+        {
+            List<Card> allChildren = new List<Card>();
+            Card currentCard = parentCard.ChildCard;
+
+            allChildren.Add(parentCard);
+            
+            while (currentCard != null)
+            {
+                allChildren.Add(currentCard);
+                currentCard = currentCard.ChildCard;
+            }
+            
+            Card[] children = allChildren.ToArray();
+            
+            for (int index = 0; index < children.Length; index++)
+            {
+                Card child = children[index];
+                child.transform.position = new Vector3(child.transform.position.x, child.transform.position.y,  child.transform.position.z - 0.1f * index);
+            }
+
+            return children;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using LuniLibrary.SingletonClassBase;
+﻿using System;
+using LuniLibrary.SingletonClassBase;
 using UnityEngine;
 
 namespace Managers
@@ -6,6 +7,7 @@ namespace Managers
     public class GameManager : Singleton<GameManager>
     {
         [field: SerializeField] public CardManager CardManager { get; private set; }
+        [field: SerializeField] public FusionManager FusionManager { get; private set; }
 
         protected override void InternalAwake()
         {
