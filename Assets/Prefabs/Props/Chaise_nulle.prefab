@@ -87,27 +87,27 @@ PrefabInstance:
     - target: {fileID: -6093592463355912122, guid: 6439bf402403a454a99aa2dec2d6412b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 152e953fd2351494bb3c2ae6d701ffea, type: 2}
+      objectReference: {fileID: 2100000, guid: b259170b51fd8cd4699adc7c42549861, type: 2}
     - target: {fileID: -4683669308469848369, guid: 6439bf402403a454a99aa2dec2d6412b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5a4bc92de37e93f41937652a68a0e36b, type: 2}
+      objectReference: {fileID: 2100000, guid: badece310f6ab3940b755a6c2405e98a, type: 2}
     - target: {fileID: -1806680513116206669, guid: 6439bf402403a454a99aa2dec2d6412b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 152e953fd2351494bb3c2ae6d701ffea, type: 2}
+      objectReference: {fileID: 2100000, guid: b259170b51fd8cd4699adc7c42549861, type: 2}
     - target: {fileID: -1461304994638716399, guid: 6439bf402403a454a99aa2dec2d6412b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5a4bc92de37e93f41937652a68a0e36b, type: 2}
+      objectReference: {fileID: 2100000, guid: badece310f6ab3940b755a6c2405e98a, type: 2}
     - target: {fileID: -804731622281664130, guid: 6439bf402403a454a99aa2dec2d6412b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 152e953fd2351494bb3c2ae6d701ffea, type: 2}
+      objectReference: {fileID: 2100000, guid: b259170b51fd8cd4699adc7c42549861, type: 2}
     - target: {fileID: -678588488315902003, guid: 6439bf402403a454a99aa2dec2d6412b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 152e953fd2351494bb3c2ae6d701ffea, type: 2}
+      objectReference: {fileID: 2100000, guid: b259170b51fd8cd4699adc7c42549861, type: 2}
     - target: {fileID: 919132149155446097, guid: 6439bf402403a454a99aa2dec2d6412b, type: 3}
       propertyPath: m_Name
       value: Chaise_nulle

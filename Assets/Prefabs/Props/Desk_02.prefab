@@ -87,11 +87,11 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 2a132dc16d41eb54ba46dd19a16ba4b7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9bc50467b94d59b439d056d6f515ef5b, type: 2}
+      objectReference: {fileID: 2100000, guid: 4c2a86025bd75044eade88d5a85311a6, type: 2}
     - target: {fileID: -7511558181221131132, guid: 2a132dc16d41eb54ba46dd19a16ba4b7, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 00d6dc2a2837580429c65600422539cc, type: 2}
+      objectReference: {fileID: 2100000, guid: 23813e7b128d2444ebf3c969b91d1682, type: 2}
     - target: {fileID: 919132149155446097, guid: 2a132dc16d41eb54ba46dd19a16ba4b7, type: 3}
       propertyPath: m_Name
       value: Desk_02

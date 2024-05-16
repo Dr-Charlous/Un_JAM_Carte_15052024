@@ -55,15 +55,15 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: a6627304758066c46927b662fe8dbb56, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8cc60477ee5d439428b7788d7f0a1407, type: 2}
+      objectReference: {fileID: 2100000, guid: b2d37b73a398d924794c52506202c4ed, type: 2}
     - target: {fileID: -7511558181221131132, guid: a6627304758066c46927b662fe8dbb56, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 137e69172d225ac43988a115af293b6d, type: 2}
+      objectReference: {fileID: 2100000, guid: ed4ac1f75c10aba47b35bbf40eb870cd, type: 2}
     - target: {fileID: -7511558181221131132, guid: a6627304758066c46927b662fe8dbb56, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 5a4bc92de37e93f41937652a68a0e36b, type: 2}
+      objectReference: {fileID: 2100000, guid: badece310f6ab3940b755a6c2405e98a, type: 2}
     - target: {fileID: 919132149155446097, guid: a6627304758066c46927b662fe8dbb56, type: 3}
       propertyPath: m_Name
       value: Pencil Variant

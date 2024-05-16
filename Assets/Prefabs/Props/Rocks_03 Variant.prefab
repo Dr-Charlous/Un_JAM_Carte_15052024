@@ -55,15 +55,15 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: ff76bf695813dd4488cd5a3207755eb8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0ae12ad5171893a449bda7954f32a1e0, type: 2}
+      objectReference: {fileID: 2100000, guid: 6c93cabb9a4239b4f9e1513651243c79, type: 2}
     - target: {fileID: -7511558181221131132, guid: ff76bf695813dd4488cd5a3207755eb8, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 4b70061250241444cb68440cd7583639, type: 2}
+      objectReference: {fileID: 2100000, guid: 62bd30f1936ec664da7c6c3ba97a5f62, type: 2}
     - target: {fileID: -7511558181221131132, guid: ff76bf695813dd4488cd5a3207755eb8, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 60fcad343e46f2740ba9a648ffca6fc4, type: 2}
+      objectReference: {fileID: 2100000, guid: 44b60d7b714daf34c8852c6245a77491, type: 2}
     - target: {fileID: 919132149155446097, guid: ff76bf695813dd4488cd5a3207755eb8, type: 3}
       propertyPath: m_Name
       value: Rocks_03 Variant
