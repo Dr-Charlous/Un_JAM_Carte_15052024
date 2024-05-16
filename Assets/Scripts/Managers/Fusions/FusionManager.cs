@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class FusionManager : MonoBehaviour
 {
-    [SerializeField] GameObject _cardPrefab;
+
     public FusionData[] FusionDatas;
 
-    public void CheckFusion(CardData[] cardsData)
+    [SerializeField] GameObject _cardPrefab;
+
+    public void CheckFusion(CardAssign[] cardsAssign)
     {
         bool isValid = false;
         int k = -1;
@@ -16,9 +18,9 @@ public class FusionManager : MonoBehaviour
         {
             bool isEveryOne = true;
 
-            for (int j = 0; j < cardsData.Length; j++)
+            for (int j = 0; j < cardsAssign.Length; j++)
             {
-                if (FusionDatas[i].Reciepe[j] == cardsData[j])
+                if (FusionDatas[i].Recipe[j] == cardsAssign[j].CardData)
                     continue;
                 else
                     isEveryOne = false;
@@ -36,17 +38,17 @@ public class FusionManager : MonoBehaviour
 
         if (isValid)
         {
-            StartCoroutine(WaitSpawn(cardsData, FusionDatas[k]));
+            StartCoroutine(WaitSpawn(cardsAssign, FusionDatas[k]));
         }
     }
 
-    IEnumerator WaitSpawn(CardData[] cardsData, FusionData fusionData)
+    IEnumerator WaitSpawn(CardAssign[] cardsAssign, FusionData fusionData)
     {
         yield return new WaitForSeconds(fusionData.Time);
 
-        for (int i = 0; i < cardsData.Length; i++)
+        for (int i = 0; i < cardsAssign.Length; i++)
         {
-            Destroy(cardsData[i]);
+            Destroy(cardsAssign[i].gameObject);
         }
 
         for (int i = 0; i < fusionData.Result.Length; i++)
