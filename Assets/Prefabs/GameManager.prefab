@@ -64,6 +64,9 @@ MonoBehaviour:
   _cardLayer:
     serializedVersion: 2
     m_Bits: 8
+  _shopLayer:
+    serializedVersion: 2
+    m_Bits: 64
   _hoverTweenDuration: 0.1
   _hoverTweenStrength: 1.1
   _moveTweenDuration: 0.1
@@ -80,6 +83,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7608fadf79a2f694eb7c983ad1dd3804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FusionDatas:
-  - {fileID: 11400000, guid: 881c035ce1949bb43a6ba7212b635019, type: 2}
+  <FusionDatas>k__BackingField: []
   _cardPrefab: {fileID: 4361350267299786379, guid: 0d31d7ff2db00414a8a0fdae62837ba9, type: 3}

@@ -9,6 +9,7 @@ namespace Managers
     {
         [Header("References")] 
         [SerializeField] private LayerMask _cardLayer;
+        [SerializeField] private LayerMask _shopLayer;
         
         [Header("Hover Tween Values")] 
         [SerializeField] private float _hoverTweenDuration;
@@ -27,6 +28,7 @@ namespace Managers
 
         public float HoverTweenStrength => _hoverTweenStrength;
         public LayerMask CardLayer => _cardLayer;
+        public LayerMask ShopLayer => _shopLayer;
 
         #endregion
 

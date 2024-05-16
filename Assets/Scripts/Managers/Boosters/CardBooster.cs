@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using UnityEngine;
 
@@ -17,6 +18,8 @@ public class CardBooster : ScriptableObject
             int rnd = UnityEngine.Random.Range(0, CardsDropScript.Length);
 
             obj.GetComponent<CardAssign>().CardData = CardsDropScript[rnd];
+
+            //obj.transform.DOMove(, 1);
 
             number--;
         }

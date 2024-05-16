@@ -8,20 +8,26 @@ public class ShopManager : MonoBehaviour
     [SerializeField] GameObject _cardPrefab;
     [SerializeField] GameObject _boosterPrefab;
 
-    public void Shop(CardAssign cardAssign)
+    public void Shop(List<CardAssign> cardAssign)
     {
-        if (cardAssign == _cardAssignMoney)
+        for (int i = 0; i < cardAssign.Count; i++)
         {
-            GameObject obj = Instantiate(_cardPrefab);
-            obj.GetComponent<CardAssign>().CardData = _cardAssignMoney.CardData;
+            if (cardAssign[i] == _cardAssignMoney)
+            {
+                for (int j = 0; j < cardAssign[i].CardData.CostSell; j++)
+                {
+                    GameObject obj = Instantiate(_cardPrefab);
+                    obj.GetComponent<CardAssign>().CardData = _cardAssignMoney.CardData;
+                }
 
-            Destroy(cardAssign.gameObject);
-        }
-        else
-        {
-            Instantiate(_boosterPrefab);
+                Destroy(cardAssign[i].gameObject);
+            }
+            else
+            {
+                Instantiate(_boosterPrefab);
 
-            Destroy(cardAssign.gameObject);
+                Destroy(cardAssign[i].gameObject);
+            }
         }
     }
 }
