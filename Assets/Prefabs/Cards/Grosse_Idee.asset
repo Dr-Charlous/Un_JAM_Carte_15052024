@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1902c4f7b124687419d72fd5fdbc4387, type: 3}
-  m_Name: Proto Graphique
+  m_Name: Grosse_Idee
   m_EditorClassIdentifier: 
-  NameCard: Proto Graphique
+  NameCard: Grosse Idee
   SpriteCard: {fileID: 0}
   ColorCard: {r: 0, g: 0, b: 0, a: 0}
-  UseNumber: 0
-  CostSell: 4
+  UseNumber: 1
+  CostSell: 3
