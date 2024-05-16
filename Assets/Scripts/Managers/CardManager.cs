@@ -8,8 +8,7 @@ namespace Managers
     public class CardManager : MonoBehaviour
     {
         [Header("References")] 
-        [SerializeField] private LayerMask _cardLayer;
-        [SerializeField] private LayerMask _shopLayer;
+        [SerializeField] private LayerMask _interactiveLayers;
         
         [Header("Hover Tween Values")] 
         [SerializeField] private float _hoverTweenDuration;
@@ -31,8 +30,7 @@ namespace Managers
         public float HoverTweenDuration => _hoverTweenDuration;
 
         public float HoverTweenStrength => _hoverTweenStrength;
-        public LayerMask CardLayer => _cardLayer;
-        public LayerMask ShopLayer => _shopLayer;
+        public LayerMask InteractiveLayers => _interactiveLayers;
 
         public float JumpTweenDuration => _jumpTweenDuration;
 

@@ -18,9 +18,6 @@ public class Card : MonoBehaviour
     [Header("References")] 
     [SerializeField] private BoxCollider2D _boxCollider2D;
     [SerializeField] private Transform _childTransform;
-    [SerializeField] private Transform _objectToScale;
-
-    private Vector3 _initScale;
     
     private readonly Tuple<float, float> _normalCollider = new Tuple<float, float>(0, 2.1f); 
     private readonly Tuple<float, float> _reducedCollider = new Tuple<float, float>(0.8f, 0.45f); 
@@ -31,45 +28,31 @@ public class Card : MonoBehaviour
         CanDropCardOnThis = true;
         
         ChangeCollider(_normalCollider.Item1, _normalCollider.Item2);
-        
-        _initScale = transform.localScale;
     }
 
     private void Update()
     {
         HandleBeingDroppedOnCard();
-        HandleBeingDroppedOnShop();
-    }
-
-    private void HandleBeingDroppedOnShop()
-    {
-        if (IsBeingDropped)
-        {
-            Collider2D[] hits = Physics2D.OverlapBoxAll(_boxCollider2D.bounds.center, _boxCollider2D.size, 0, GameManager.Instance.CardManager.ShopLayer);
-
-            foreach (Collider2D hit in hits)
-            {
-                ShopManager shop = hit.gameObject.GetComponent<ShopManager>();
-
-                if (shop != null)
-                    shop.Shop(GetChildren(this));
-
-            }
-
-            IsBeingDropped = false;
-        }
     }
 
     private void HandleBeingDroppedOnCard()
     {
         if (IsBeingDropped)
         {
-            Collider2D[] hits = Physics2D.OverlapBoxAll(_boxCollider2D.bounds.center, _boxCollider2D.size, 0, GameManager.Instance.CardManager.CardLayer);
+            Collider2D[] hits = Physics2D.OverlapBoxAll(_boxCollider2D.bounds.center, _boxCollider2D.size, 0, GameManager.Instance.CardManager.InteractiveLayers);
 
             bool hasNewParent = false;
 
             foreach (Collider2D hit in hits)
             {
+                if (hit.TryGetComponent(out ShopManager shop))
+                {
+                    shop.Shop(GetChildren(this));
+                    IsBeingDropped = false;
+
+                    return;
+                }
+                
                 if (hit.CompareTag("Wall"))
                 {
                     transform.position = InitPos;
