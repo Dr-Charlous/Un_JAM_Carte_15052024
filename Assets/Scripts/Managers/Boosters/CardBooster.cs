@@ -5,7 +5,8 @@ using UnityEngine;
 public class CardBooster : ScriptableObject
 {
     public CardData[] CardsDropScript;
-    public int NumberDrop;
+    public int NumberDropMin;
+    public int NumberDropMax;
 
     public bool CardDropper(GameObject prefab, int number)
     {
@@ -13,7 +14,7 @@ public class CardBooster : ScriptableObject
         {
             GameObject obj = Instantiate(prefab);
 
-            int rnd = UnityEngine.Random.Range(0, CardsDropScript.Length);
+            int rnd = UnityEngine.Random.Range(0, CardsDropScript.Length+1);
 
             obj.GetComponent<CardAssign>().CardData = CardsDropScript[rnd];
 

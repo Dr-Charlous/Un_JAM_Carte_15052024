@@ -11,7 +11,7 @@ public class BoosterAssign : MonoBehaviour
 
     private void Start()
     {
-        _dropNumber = _boosterData.NumberDrop;
+        _dropNumber = Random.Range(_boosterData.NumberDropMin, _boosterData.NumberDropMax+1);
     }
 
     private void OnMouseDown()
