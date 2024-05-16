@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Audio;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -9,35 +10,33 @@ namespace Managers
     {
         [Header("References")] 
         [SerializeField] private LayerMask _interactiveLayers;
-        
-        [Header("Hover Tween Values")] 
-        [SerializeField] private float _hoverTweenDuration;
-        [SerializeField] private float _hoverTweenStrength;
-        
-        [Header("Move Tween Values")] 
-        [SerializeField] private float _moveTweenDuration;
-        [SerializeField] private float _moveTweenStrength;
-        
+        [SerializeField] private GameObject _cardPrefab;
+        [SerializeField] private float _minSpawnRadius;
+        [SerializeField] private float _maxSpawnRadius;
+
         [Header("Jump Spawn Tween Values")] 
         [SerializeField] private float _jumpTweenDuration;
         [SerializeField] private float _jumpTweenStrength;
 
         #region Properties
 
-        public float MoveTweenDuration => _moveTweenDuration;
-        public float MoveTweenStrength => _moveTweenStrength;
-
-        public float HoverTweenDuration => _hoverTweenDuration;
-
-        public float HoverTweenStrength => _hoverTweenStrength;
         public LayerMask InteractiveLayers => _interactiveLayers;
-
-        public float JumpTweenDuration => _jumpTweenDuration;
-
-        public float JumpTweenStrength => _jumpTweenStrength;
 
         #endregion
 
+        public void SpawnCard(Vector3 position, CardData card)
+        {
+            Vector2 randomPos = Random.insideUnitCircle * _maxSpawnRadius;
+            GameObject newCard = Instantiate(_cardPrefab, position, Quaternion.identity);
+
+            Vector2 point = randomPos.normalized * Random.Range(_minSpawnRadius, _maxSpawnRadius);
+
+            newCard.transform.DOJump(newCard.transform.position + new Vector3(point.x, point.y, 0), _jumpTweenStrength, 1,_jumpTweenDuration);
+            newCard.GetComponent<CardAssign>().CardData = card;
+                
+            AudioManager.Instance.PlaySound("Spawn");
+        }
+        
         public Card GetHigherStackParent(Card card)
         {
             if (card.ParentCard == null)

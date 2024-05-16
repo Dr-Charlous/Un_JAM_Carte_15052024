@@ -1,35 +1,40 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using Audio;
+using Managers.Boosters;
 using UnityEngine;
 
-public class ShopManager : MonoBehaviour
+namespace Managers
 {
-    [SerializeField] CardData _cardDataMoney;
-    [SerializeField] CardBooster _boosterData;
-    [SerializeField] GameObject _cardPrefab;
-    [SerializeField] GameObject _boosterPrefab;
-
-    public void Shop(List<CardAssign> cardAssign)
+    public class ShopManager : MonoBehaviour
     {
-        for (int i = 0; i < cardAssign.Count; i++)
+        [SerializeField] CardData _cardDataMoney;
+        [SerializeField] CardBooster _boosterData;
+        [SerializeField] GameObject _cardPrefab;
+        [SerializeField] GameObject _boosterPrefab;
+
+        public void Shop(List<CardAssign> cardAssign)
         {
-            if (cardAssign[i].CardData != _cardDataMoney)
+            AudioManager.Instance.PlaySound("Vente");
+        
+            for (int i = 0; i < cardAssign.Count; i++)
             {
-                for (int j = 0; j < cardAssign[i].CardData.CostSell; j++)
+                if (cardAssign[i].CardData != _cardDataMoney)
                 {
-                    GameObject obj = Instantiate(_cardPrefab);
-                    obj.GetComponent<CardAssign>().CardData = _cardDataMoney;
+                    for (int j = 0; j < cardAssign[i].CardData.CostSell; j++)
+                    {
+                        GameObject obj = Instantiate(_cardPrefab);
+                        obj.GetComponent<CardAssign>().CardData = _cardDataMoney;
+                    }
+
+                    Destroy(cardAssign[i].gameObject);
                 }
+                else
+                {
+                    GameObject obj = Instantiate(_boosterPrefab);
+                    obj.GetComponent<BoosterAssign>().BoosterData = _boosterData;
 
-                Destroy(cardAssign[i].gameObject);
-            }
-            else
-            {
-                GameObject obj = Instantiate(_boosterPrefab);
-                obj.GetComponent<BoosterAssign>().BoosterData = _boosterData;
-
-                Destroy(cardAssign[i].gameObject);
+                    Destroy(cardAssign[i].gameObject);
+                }
             }
         }
     }

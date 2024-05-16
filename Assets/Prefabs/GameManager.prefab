@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5289936037837254976}
   - component: {fileID: 1480935021226105092}
   - component: {fileID: 4765783149235463995}
+  - component: {fileID: 1070586193228503747}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -65,6 +66,8 @@ MonoBehaviour:
   _interactiveLayers:
     serializedVersion: 2
     m_Bits: 72
+  _cardPrefab: {fileID: 4361350267299786379, guid: 0d31d7ff2db00414a8a0fdae62837ba9, type: 3}
+  _spawnRadius: 2.1
   _hoverTweenDuration: 0.1
   _hoverTweenStrength: 1.1
   _moveTweenDuration: 0.1
@@ -84,8 +87,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <FusionDatas>k__BackingField: []
-  _cardPrefab: {fileID: 4361350267299786379, guid: 0d31d7ff2db00414a8a0fdae62837ba9, type: 3}
-  _spawnCardRadius: 0
 --- !u!114 &4765783149235463995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +103,7 @@ MonoBehaviour:
   Sounds:
   - Name: Achat
     Clip: {fileID: 8300000, guid: b51e3b2afcc6ec04b9fd87c8f80f53dc, type: 3}
-    Volume: 1
+    Volume: 0.649
     Pitch: 1
     Loop: 0
     Source: {fileID: 0}
@@ -126,7 +127,7 @@ MonoBehaviour:
     Source: {fileID: 0}
   - Name: Music
     Clip: {fileID: 8300000, guid: ca6f9ff08cb33a94697c2414ec40e903, type: 3}
-    Volume: 1
+    Volume: 0.204
     Pitch: 1
     Loop: 0
     Source: {fileID: 0}
@@ -148,3 +149,15 @@ MonoBehaviour:
     Pitch: 1
     Loop: 0
     Source: {fileID: 0}
+--- !u!114 &1070586193228503747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3710491781681646101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810c9c60e45e40d991f6c5da54b0ac60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

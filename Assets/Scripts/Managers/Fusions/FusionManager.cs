@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Audio;
 using DG.Tweening;
 using UnityEngine;
 
@@ -9,9 +10,8 @@ namespace Managers.Fusions
     public class FusionManager : MonoBehaviour
     {
         [field:SerializeField] public FusionData[] FusionDatas { get; private set; }
-
-        [SerializeField] private GameObject _cardPrefab;
-        [SerializeField] private float _spawnCardRadius;
+        
+        private Vector3 _lastCardPosition;
         
         public void HandleFusion(List<CardAssign> cards)
         {
@@ -43,6 +43,8 @@ namespace Managers.Fusions
                         isInCondition = true;
 
                         currentCardsNb++;
+                        
+                        _lastCardPosition = card.transform.position;
 
                         break;
                     }
@@ -72,7 +74,8 @@ namespace Managers.Fusions
 
         private IEnumerator MakeFusion(List<CardAssign> cards, FusionData currentFusion)
         {
-            Debug.Log("FUSION");
+            // Debug.Log("FUSION");
+            AudioManager.Instance.PlaySound("Fusion");
             
             foreach (CardAssign card in cards)
             {
@@ -97,11 +100,7 @@ namespace Managers.Fusions
 
             foreach (CardData card in currentFusion.Result)
             {
-                Vector2 randomPos = Random.insideUnitCircle * _spawnCardRadius;
-                GameObject newCard = Instantiate(_cardPrefab);
-
-                newCard.transform.DOJump(randomPos, GameManager.Instance.CardManager.JumpTweenStrength, 1, GameManager.Instance.CardManager.JumpTweenDuration);
-                newCard.GetComponent<CardAssign>().CardData = card;
+                GameManager.Instance.CardManager.SpawnCard(_lastCardPosition, card);
             }
         }
     }

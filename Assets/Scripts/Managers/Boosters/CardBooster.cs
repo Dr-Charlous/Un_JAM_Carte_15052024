@@ -9,20 +9,5 @@ public class CardBooster : ScriptableObject
     public int NumberDropMin;
     public int NumberDropMax;
 
-    public int CardDropper(GameObject prefab, int number)
-    {
-        if (number > 0)
-        {
-            GameObject obj = Instantiate(prefab);
-
-            int rnd = UnityEngine.Random.Range(0, CardsDropScript.Length);
-
-            obj.GetComponent<CardAssign>().CardData = CardsDropScript[rnd];
-
-            //obj.transform.DOMove(, 1);
-
-            number--;
-        }
-        return number;
-    }
+    
 }

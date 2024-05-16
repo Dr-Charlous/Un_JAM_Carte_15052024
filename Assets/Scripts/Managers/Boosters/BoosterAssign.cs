@@ -1,25 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
-public class BoosterAssign : MonoBehaviour
+namespace Managers.Boosters
 {
-    public CardBooster BoosterData;
-
-    [SerializeField] GameObject _cardPrefab;
-
-    int _dropNumber;
-
-    private void Start()
+    public class BoosterAssign : MonoBehaviour
     {
-        _dropNumber = Random.Range(BoosterData.NumberDropMin, BoosterData.NumberDropMax+1);
-    }
+        public CardBooster BoosterData;
 
-    private void OnMouseDown()
-    {
-        _dropNumber = BoosterData.CardDropper(_cardPrefab, _dropNumber);
-        if (_dropNumber <= 0)
-            Destroy(gameObject);
+        int _dropNumber;
+
+        private void Start()
+        {
+            _dropNumber = Random.Range(BoosterData.NumberDropMin, BoosterData.NumberDropMax+1);
+        }
+
+        private void OnMouseDown()
+        {
+            _dropNumber = CardDropper();
+            
+            if (_dropNumber <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        private int CardDropper()
+        {
+            int number = _dropNumber;
+            
+            if (number > 0)
+            {
+                int rnd = Random.Range(0, BoosterData.CardsDropScript.Length);
+                GameManager.Instance.CardManager.SpawnCard(transform.position, BoosterData.CardsDropScript[rnd]);
+
+                number--;
+            }
+            
+            return number;
+        }
     }
 }

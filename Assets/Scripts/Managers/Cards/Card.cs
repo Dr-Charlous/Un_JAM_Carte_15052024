@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using DG.Tweening;
 using Managers;
 using Unity.VisualScripting;
@@ -39,6 +40,8 @@ public class Card : MonoBehaviour
     {
         if (IsBeingDropped)
         {
+            AudioManager.Instance.PlaySound("Poser");
+            
             Collider2D[] hits = Physics2D.OverlapBoxAll(_boxCollider2D.bounds.center, _boxCollider2D.size, 0, GameManager.Instance.CardManager.InteractiveLayers);
 
             bool hasNewParent = false;
@@ -50,6 +53,7 @@ public class Card : MonoBehaviour
                     DiscardParenting();
                     List<CardAssign> children = GameManager.Instance.CardManager.GetAllChildren(this);
                     shop.Shop(children);
+                    
                     IsBeingDropped = false;
 
                     return;

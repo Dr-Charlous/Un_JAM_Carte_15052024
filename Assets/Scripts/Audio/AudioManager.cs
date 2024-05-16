@@ -19,7 +19,7 @@ namespace Audio
                 s.Source.loop = s.Loop;
             }
             
-            // PlaySound("Music");
+            PlaySound("Music");
         }
 
         public void PlaySound(string name)
