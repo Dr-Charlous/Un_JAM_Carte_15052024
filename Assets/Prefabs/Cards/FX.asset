@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddab5357e9f0cf546b4a9b4872d2ea2b, type: 3}
   m_Name: FX
   m_EditorClassIdentifier: 
-  NameCard: 
+  NameCard: FX
   SpriteCard: {fileID: 0}
   ColorCard: {r: 0, g: 0, b: 0, a: 0}
-  UseNumber: 0
-  CostSell: 0
+  UseNumber: 1
+  CostSell: 2
