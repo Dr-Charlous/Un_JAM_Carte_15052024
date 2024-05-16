@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269ee70ad06239c499601423ce0e3ae0, type: 3}
   m_Name: DataFusion_ConflitGitHub-1
   m_EditorClassIdentifier: 
-  Reciepe:
-  - {fileID: 11400000, guid: 51e483bd600fc7545943ded4e3f7f9b1, type: 2}
-  - {fileID: 11400000, guid: 51e483bd600fc7545943ded4e3f7f9b1, type: 2}
+  Recipe:
+  - {fileID: 11400000, guid: 9699fcf18f290dd4a8706b1275a7288c, type: 2}
+  - {fileID: 11400000, guid: 5462cd612eceb094dae7c0fbc2791875, type: 2}
   Result:
   - {fileID: 11400000, guid: 1205db2b953ff5d45957f0f3ea110478, type: 2}
-  Time: 2
+  Time: 3

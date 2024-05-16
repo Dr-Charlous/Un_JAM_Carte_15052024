@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269ee70ad06239c499601423ce0e3ae0, type: 3}
   m_Name: DataFusion_Proto_Graphique-5
   m_EditorClassIdentifier: 
-  Reciepe:
+  Recipe:
   - {fileID: 11400000, guid: ffe41723358a8c2429537eaa3b1b97a8, type: 2}
   - {fileID: 11400000, guid: 257ca63e77a52634f88975e77598027b, type: 2}
   Result:
   - {fileID: 11400000, guid: 09920f6f17b58f145ba6f254d71043c4, type: 2}
-  Time: 2
+  Time: 4

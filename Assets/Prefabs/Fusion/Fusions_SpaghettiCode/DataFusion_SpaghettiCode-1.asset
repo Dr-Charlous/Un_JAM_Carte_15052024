@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269ee70ad06239c499601423ce0e3ae0, type: 3}
   m_Name: DataFusion_SpaghettiCode-1
   m_EditorClassIdentifier: 
-  Reciepe:
+  Recipe:
   - {fileID: 11400000, guid: baa1da0b0b58f504490d369fe1ce77fb, type: 2}
   - {fileID: 11400000, guid: 5462cd612eceb094dae7c0fbc2791875, type: 2}
   Result:
   - {fileID: 11400000, guid: b5c01a08c11175540aed3011634316f8, type: 2}
-  Time: 2
+  Time: 3

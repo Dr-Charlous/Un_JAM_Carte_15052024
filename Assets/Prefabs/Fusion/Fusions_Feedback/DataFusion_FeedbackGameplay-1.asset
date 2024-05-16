@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269ee70ad06239c499601423ce0e3ae0, type: 3}
   m_Name: DataFusion_FeedbackGameplay-1
   m_EditorClassIdentifier: 
-  Reciepe:
-  - {fileID: 11400000, guid: 5d03b36efb361c646b032b0700a08746, type: 2}
+  Recipe:
   - {fileID: 11400000, guid: 5462cd612eceb094dae7c0fbc2791875, type: 2}
+  - {fileID: 11400000, guid: 5d03b36efb361c646b032b0700a08746, type: 2}
   Result:
   - {fileID: 11400000, guid: d9dae53ecffb79449888b5837375dff0, type: 2}
   Time: 2

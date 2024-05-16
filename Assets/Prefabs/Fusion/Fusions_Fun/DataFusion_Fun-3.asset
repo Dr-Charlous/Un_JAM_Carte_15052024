@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269ee70ad06239c499601423ce0e3ae0, type: 3}
   m_Name: DataFusion_Fun-3
   m_EditorClassIdentifier: 
-  Reciepe:
+  Recipe:
   - {fileID: 11400000, guid: baa1da0b0b58f504490d369fe1ce77fb, type: 2}
   - {fileID: 11400000, guid: 9d7145eb32381e2429b7c8295fd1b980, type: 2}
   Result:
