@@ -16,7 +16,8 @@ public class BoosterAssign : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!_boosterData.CardDropper(_cardPrefab, _dropNumber))
+        _dropNumber = _boosterData.CardDropper(_cardPrefab, _dropNumber);
+        if (_dropNumber <= 0)
             Destroy(gameObject);
     }
 }

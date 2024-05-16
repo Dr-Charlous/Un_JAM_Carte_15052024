@@ -8,7 +8,7 @@ public class CardBooster : ScriptableObject
     public int NumberDropMin;
     public int NumberDropMax;
 
-    public bool CardDropper(GameObject prefab, int number)
+    public int CardDropper(GameObject prefab, int number)
     {
         if (number > 0)
         {
@@ -19,12 +19,7 @@ public class CardBooster : ScriptableObject
             obj.GetComponent<CardAssign>().CardData = CardsDropScript[rnd];
 
             number--;
-            if (number > 0)
-                return true;
-            else
-                return false;
         }
-        else
-            return false;
+        return number;
     }
 }
