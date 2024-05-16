@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1902c4f7b124687419d72fd5fdbc4387, type: 3}
+  m_Script: {fileID: 11500000, guid: ddab5357e9f0cf546b4a9b4872d2ea2b, type: 3}
   m_Name: Brainstorm
   m_EditorClassIdentifier: 
-  NameCard: Brainstorm
-  SpriteCard: {fileID: 21300000, guid: 14a54f06de030fd4b86f7e543f5d3929, type: 3}
-  ColorCard: {r: 0.45490196, g: 0.78039217, b: 0.7294118, a: 1}
-  UseNumber: 2
-  CostSell: 1
+  NameCard: 
+  SpriteCard: {fileID: 0}
+  ColorCard: {r: 0, g: 0, b: 0, a: 0}
+  UseNumber: 0
+  CostSell: 0

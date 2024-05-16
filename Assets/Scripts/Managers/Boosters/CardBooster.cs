@@ -14,7 +14,7 @@ public class CardBooster : ScriptableObject
         {
             GameObject obj = Instantiate(prefab);
 
-            int rnd = UnityEngine.Random.Range(0, CardsDropScript.Length+1);
+            int rnd = UnityEngine.Random.Range(0, CardsDropScript.Length);
 
             obj.GetComponent<CardAssign>().CardData = CardsDropScript[rnd];
 
