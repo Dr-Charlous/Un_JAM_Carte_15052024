@@ -45,11 +45,15 @@ public class Card : MonoBehaviour
     {
         if (IsBeingDropped)
         {
-            Collider2D[] hits = Physics2D.OverlapBoxAll(_boxCollider2D.bounds.center, _boxCollider2D.size, 0);
+            Collider2D[] hits = Physics2D.OverlapBoxAll(_boxCollider2D.bounds.center, _boxCollider2D.size, 0, GameManager.Instance.CardManager.ShopLayer);
 
             foreach (Collider2D hit in hits)
             {
-                
+                ShopManager shop = hit.gameObject.GetComponent<ShopManager>();
+
+                if (shop != null)
+                    shop.Shop(GetChildren(this));
+
             }
 
             IsBeingDropped = false;
@@ -118,13 +122,18 @@ public class Card : MonoBehaviour
 
     private void HandleCombo(Card card)
     {
-        Card higherParent = GameManager.Instance.CardManager.GetHigherStackParent(card);
-        List<CardAssign> allChild = GameManager.Instance.CardManager.GetAllChildren(higherParent);
+        List<CardAssign> cards = GetChildren(card);
 
-        if (allChild.Count > 1)
+        if (cards.Count > 1)
         {
-            GameManager.Instance.FusionManager.HandleFusion(allChild);
+            GameManager.Instance.FusionManager.HandleFusion(cards);
         }
+    }
+
+    private List<CardAssign> GetChildren(Card card)
+    {
+        Card higherParent = GameManager.Instance.CardManager.GetHigherStackParent(card);
+        return GameManager.Instance.CardManager.GetAllChildren(higherParent);
     }
 
     private void HandleNewParent(Card card)
