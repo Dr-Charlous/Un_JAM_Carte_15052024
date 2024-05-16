@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a813e4f412a8e76448aed2cb1408e307, type: 3}
   m_Name: Booster
   m_EditorClassIdentifier: 
-  CardsDropScript: []
-  NumberDrop: 0
+  CardsDropScript:
+  - {fileID: 11400000, guid: 5ac98f673110a4f4b8ca870b5e9615d6, type: 2}
+  - {fileID: 11400000, guid: 1b75310a355794849a6f3593fec0e746, type: 2}
+  NumberDropMin: 3
+  NumberDropMax: 5
