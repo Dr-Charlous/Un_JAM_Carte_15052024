@@ -10,9 +10,10 @@ namespace Managers
     {
         [Header("References")] 
         [SerializeField] private LayerMask _interactiveLayers;
-        [SerializeField] private GameObject _cardPrefab;
+        [SerializeField] private Card _cardPrefab;
         [SerializeField] private float _minSpawnRadius;
         [SerializeField] private float _maxSpawnRadius;
+        [SerializeField] private float _ySpawnOffset;
 
         [Header("Jump Spawn Tween Values")] 
         [SerializeField] private float _jumpTweenDuration;
@@ -24,18 +25,24 @@ namespace Managers
 
         #endregion
 
-        public void SpawnCard(Vector3 position, CardData card)
+        public Card SpawnCard(Vector3 position, CardData card, SpawnDirection direction = SpawnDirection.Circle)
         {
             Vector2 randomPos = Random.insideUnitCircle * _maxSpawnRadius;
             Vector2 point = randomPos.normalized * Random.Range(_minSpawnRadius, _maxSpawnRadius);
             
-            GameObject newCard = Instantiate(_cardPrefab, position, Quaternion.identity);
+            Card newCard = Instantiate(_cardPrefab, position, Quaternion.identity);
 
             newCard.transform.DOScale(1, 0.1f);
-            newCard.transform.DOJump(newCard.transform.position + new Vector3(point.x, point.y, 0), _jumpTweenStrength, 1,_jumpTweenDuration);
-            newCard.GetComponent<CardAssign>().CardData = card;
+
+            Vector3 circleEndPos = newCard.transform.position + new Vector3(point.x, point.y, 0);
+            Vector2 newPos = direction == SpawnDirection.Circle ? circleEndPos : new Vector3(position.x, position.y + _ySpawnOffset, 0);
                 
+            newCard.transform.DOJump(newPos, _jumpTweenStrength, 1,_jumpTweenDuration);
+            newCard.GetComponent<CardAssign>().CardData = card;
+
             AudioManager.Instance.PlaySound("Spawn");
+
+            return newCard;
         }
         
         public Card GetHigherStackParent(Card card)

@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3050307645457765336
 MonoBehaviour:
@@ -67,13 +67,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   _cardPrefab: {fileID: 4361350267299786379, guid: 0d31d7ff2db00414a8a0fdae62837ba9, type: 3}
-  _spawnRadius: 2.1
-  _hoverTweenDuration: 0.1
-  _hoverTweenStrength: 1.1
-  _moveTweenDuration: 0.1
-  _moveTweenStrength: 1.15
-  _jumpTweenDuration: 0
-  _jumpTweenStrength: 0
+  _minSpawnRadius: 2
+  _maxSpawnRadius: 3
+  _ySpawnOffset: -3
+  _jumpTweenDuration: 0.15
+  _jumpTweenStrength: 1.17
 --- !u!114 &1480935021226105092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,7 +84,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7608fadf79a2f694eb7c983ad1dd3804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <FusionDatas>k__BackingField: []
+  <FusionDatas>k__BackingField:
+  - {fileID: 11400000, guid: 881c035ce1949bb43a6ba7212b635019, type: 2}
+  - {fileID: 11400000, guid: 66ddb8229d82fd44ab523e78369d0ac1, type: 2}
 --- !u!114 &4765783149235463995
 MonoBehaviour:
   m_ObjectHideFlags: 0

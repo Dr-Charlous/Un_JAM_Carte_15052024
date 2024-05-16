@@ -11,7 +11,6 @@ using UnityEngine.UI;
 public class Card : MonoBehaviour
 {
     public bool IsBeingDropped { get; set; }
-    public bool IsFusionning { get; set; }
     public bool CanMove { get; set; }
     public bool CanDropCardOnThis { get; set; }
     public Card ChildCard { get; set; }
@@ -25,9 +24,6 @@ public class Card : MonoBehaviour
 
     private readonly Tuple<float, float> _normalCollider = new Tuple<float, float>(0, 2.1f);
     private readonly Tuple<float, float> _reducedCollider = new Tuple<float, float>(0.8f, 0.45f);
-    
-    private float _timeLeftFusionning;
-    private float _timeTotalFusionning;
 
     private void Start()
     {
