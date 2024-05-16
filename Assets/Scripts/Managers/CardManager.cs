@@ -58,12 +58,10 @@ namespace Managers
             for (var index = 0; index < allChildren.Count; index++)
             {
                 Card child = allChildren[index];
-                child.transform.position = new Vector3(child.transform.position.x, child.transform.position.y,
-                    child.transform.position.z - 0.1f * index);
+                child.transform.position = new Vector3(child.transform.position.x, child.transform.position.y, -0.1f * index);
                 
                 cardsAssigns.Add(child.GetComponent<CardAssign>());
             }
-
 
             return cardsAssigns;
         }

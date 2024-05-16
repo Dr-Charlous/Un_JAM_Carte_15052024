@@ -9,6 +9,8 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     public bool IsBeingDropped { get; set; }
+    public bool CanMove { get; set; }
+    public bool CanDropCardOnThis { get; set; }
     public Card ChildCard { get; set; }
     public Card ParentCard { get; private set; }
 
@@ -18,9 +20,15 @@ public class Card : MonoBehaviour
     [SerializeField] private Transform _objectToScale;
 
     private Vector3 _initScale;
+    
+    private readonly Tuple<float, float> _normalCollider = new Tuple<float, float>(0, 2.5f); 
+    private readonly Tuple<float, float> _reducedCollider = new Tuple<float, float>(1, 0.5f); 
 
     private void Start()
     {
+        CanMove = true;
+        CanDropCardOnThis = true;
+        
         _initScale = transform.localScale;
     }
 
@@ -60,6 +68,11 @@ public class Card : MonoBehaviour
                     continue;
                 }
 
+                if (card.CanDropCardOnThis == false)
+                {
+                    continue;
+                }
+
                 if (ParentCard != null)
                 {
                     DiscardParenting();
@@ -80,21 +93,21 @@ public class Card : MonoBehaviour
                     DiscardParenting();
                 }
 
-                ChangeCollider(ChildCard == null ? 0 : 1, ChildCard == null ? 2.5f : 0.5f);
+                ChangeCollider(ChildCard == null ? _normalCollider.Item1 : _reducedCollider.Item1, ChildCard == null ? _normalCollider.Item2 : _reducedCollider.Item2);
 
                 ParentCard = null;
                 transform.parent = null;
             }
 
-            HandleCombo();
+            HandleCombo(this);
 
             IsBeingDropped = false;
         }
     }
 
-    private void HandleCombo()
+    private void HandleCombo(Card card)
     {
-        Card higherParent = GameManager.Instance.CardManager.GetHigherStackParent(this);
+        Card higherParent = GameManager.Instance.CardManager.GetHigherStackParent(card);
         List<CardAssign> allChild = GameManager.Instance.CardManager.GetAllChildren(higherParent);
 
         if (allChild.Count > 1)
@@ -112,7 +125,7 @@ public class Card : MonoBehaviour
 
         ParentCard.ChildCard = this;
 
-        ParentCard.ChangeCollider(1, 0.5f);
+        ParentCard.ChangeCollider(_reducedCollider.Item1, _reducedCollider.Item2);
     }
 
     private void ChangeCollider(float offsetY, float sizeY)
@@ -150,9 +163,12 @@ public class Card : MonoBehaviour
 
     private void DiscardParenting()
     {
-        ParentCard.ChangeCollider(0,2.5f);
-
+        ParentCard.ChangeCollider(_normalCollider.Item1,_normalCollider.Item2);
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        
         ParentCard.ChildCard = null;
+        
+        HandleCombo(ParentCard);
     }
 
     private void OnDrawGizmos()

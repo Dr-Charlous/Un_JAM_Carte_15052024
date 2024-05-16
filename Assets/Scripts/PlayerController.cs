@@ -82,6 +82,11 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.collider.TryGetComponent(out Card card))
             {
+                if (card.CanMove == false)
+                {
+                    return;
+                }
+                
                 _currentMousePosOffset = (Vector2)hit.transform.position - hit.point;
                 _currentCard = card;
 
@@ -98,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
         if (_currentCard != null)
         {
-            _currentCard.transform.position = currentPos;
+            _currentCard.transform.position = new Vector3(currentPos.x, currentPos.y , -1);
         }
     }
 

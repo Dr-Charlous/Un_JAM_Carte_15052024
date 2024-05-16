@@ -6,7 +6,7 @@ using TMPro;
 public class CardAssign : MonoBehaviour
 {
     public CardData CardData;
-
+    
     [SerializeField] TextMeshProUGUI _textComponent;
     [SerializeField] SpriteRenderer _spriteRendererColor;
     [SerializeField] SpriteRenderer _spriteRendererSprite;
