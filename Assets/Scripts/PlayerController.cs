@@ -86,10 +86,12 @@ public class PlayerController : MonoBehaviour
                 {
                     return;
                 }
-                
+
                 _currentMousePosOffset = (Vector2)hit.transform.position - hit.point;
                 _currentCard = card;
 
+                card.InitPos = GetMousePositionWorld() + _currentMousePosOffset;
+                
                 _isHoldingCard = true;
 
                 // _currentCard.DoMoveCardScale();

@@ -17,6 +17,10 @@ namespace Managers
         [Header("Move Tween Values")] 
         [SerializeField] private float _moveTweenDuration;
         [SerializeField] private float _moveTweenStrength;
+        
+        [Header("Jump Spawn Tween Values")] 
+        [SerializeField] private float _jumpTweenDuration;
+        [SerializeField] private float _jumpTweenStrength;
 
         #region Properties
 
@@ -27,6 +31,10 @@ namespace Managers
 
         public float HoverTweenStrength => _hoverTweenStrength;
         public LayerMask CardLayer => _cardLayer;
+
+        public float JumpTweenDuration => _jumpTweenDuration;
+
+        public float JumpTweenStrength => _jumpTweenStrength;
 
         #endregion
 
