@@ -4,22 +4,24 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Object", menuName = "ScriptableObjects/CardBooster", order = 1)]
 public class CardBooster : ScriptableObject
 {
-    [SerializeField] GameObject _cardPrefab;
-    [SerializeField] int _numberDrop;
     public CardData[] CardsDropScript;
+    public int NumberDrop;
 
-    public bool CardDropper()
+    public bool CardDropper(GameObject prefab, int number)
     {
-        if (_numberDrop > 0)
+        if (number > 0)
         {
-            GameObject obj = Instantiate(_cardPrefab);
+            GameObject obj = Instantiate(prefab);
 
             int rnd = UnityEngine.Random.Range(0, CardsDropScript.Length);
 
             obj.GetComponent<CardAssign>().CardData = CardsDropScript[rnd];
 
-            _numberDrop--;
-            return true;
+            number--;
+            if (number > 0)
+                return true;
+            else
+                return false;
         }
         else
             return false;

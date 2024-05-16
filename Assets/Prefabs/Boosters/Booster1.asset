@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a813e4f412a8e76448aed2cb1408e307, type: 3}
   m_Name: Booster1
   m_EditorClassIdentifier: 
-  _cardPrefab: {fileID: 5063705198716939421, guid: 8199d043afa77bd4884d9fa9ab0c65e6, type: 3}
-  _numberDrop: 0
   CardsDropScript:
   - {fileID: 11400000, guid: a29e4cd4d1b71284cac246c7191aaba0, type: 2}
+  NumberDrop: 2
