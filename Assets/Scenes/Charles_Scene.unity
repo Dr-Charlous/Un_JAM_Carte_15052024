@@ -327,9 +327,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7608fadf79a2f694eb7c983ad1dd3804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardPrefab: {fileID: 5063705198716939421, guid: 8199d043afa77bd4884d9fa9ab0c65e6, type: 3}
   FusionDatas:
-  - {fileID: 11400000, guid: 95bd7f05193754b429fe4c18ba46e2a4, type: 2}
+  - {fileID: 11400000, guid: 881c035ce1949bb43a6ba7212b635019, type: 2}
+  _cardPrefab: {fileID: 4361350267299786379, guid: 0d31d7ff2db00414a8a0fdae62837ba9, type: 3}
 --- !u!1001 &1582971382
 PrefabInstance:
   m_ObjectHideFlags: 0
