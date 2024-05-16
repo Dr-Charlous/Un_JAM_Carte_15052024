@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 269ee70ad06239c499601423ce0e3ae0, type: 3}
-  m_Name: Fusion1
+  m_Name: DataFusion_FeedbackGameplay-2
   m_EditorClassIdentifier: 
   Reciepe:
-  - {fileID: 11400000, guid: 0585cf2052aa0224b9b01dac64272ae6, type: 2}
-  - {fileID: 11400000, guid: 5462cd612eceb094dae7c0fbc2791875, type: 2}
+  - {fileID: 11400000, guid: 5d03b36efb361c646b032b0700a08746, type: 2}
   - {fileID: 11400000, guid: 9d7145eb32381e2429b7c8295fd1b980, type: 2}
-  - {fileID: 11400000, guid: b824b4faf9613724f89a13e926c0fcfd, type: 2}
   Result:
-  - {fileID: 11400000, guid: b824b4faf9613724f89a13e926c0fcfd, type: 2}
-  - {fileID: 11400000, guid: 671a2b0e0afcf71498dc82e7632e2277, type: 2}
+  - {fileID: 11400000, guid: d9dae53ecffb79449888b5837375dff0, type: 2}
   Time: 2
