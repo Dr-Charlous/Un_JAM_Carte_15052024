@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3050307645457765336}
   - component: {fileID: 5289936037837254976}
   - component: {fileID: 1480935021226105092}
+  - component: {fileID: 4765783149235463995}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3050307645457765336
 MonoBehaviour:
@@ -61,16 +62,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0c58307872647cfa8650a008a97e9bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardLayer:
+  _interactiveLayers:
     serializedVersion: 2
-    m_Bits: 8
-  _shopLayer:
-    serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 72
   _hoverTweenDuration: 0.1
   _hoverTweenStrength: 1.1
   _moveTweenDuration: 0.1
   _moveTweenStrength: 1.15
+  _jumpTweenDuration: 0
+  _jumpTweenStrength: 0
 --- !u!114 &1480935021226105092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,3 +85,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <FusionDatas>k__BackingField: []
   _cardPrefab: {fileID: 4361350267299786379, guid: 0d31d7ff2db00414a8a0fdae62837ba9, type: 3}
+  _spawnCardRadius: 0
+--- !u!114 &4765783149235463995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3710491781681646101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f18187704133474690a172d18404998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPersistant: 0
+  Sounds:
+  - Name: Achat
+    Clip: {fileID: 8300000, guid: b51e3b2afcc6ec04b9fd87c8f80f53dc, type: 3}
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Build
+    Clip: {fileID: 8300000, guid: db8c6172e8cb4d540a89ef3c7d46ac48, type: 3}
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Button
+    Clip: {fileID: 8300000, guid: da4d11d79660e5641abba28f25523711, type: 3}
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Fusion
+    Clip: {fileID: 8300000, guid: 41e05ab0c1a59fd43b499fd380693722, type: 3}
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Music
+    Clip: {fileID: 8300000, guid: ca6f9ff08cb33a94697c2414ec40e903, type: 3}
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Poser
+    Clip: {fileID: 8300000, guid: c225d4a92006abc43a1c9675dc80ee41, type: 3}
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Spawn
+    Clip: {fileID: 8300000, guid: 0278bf8eb6247834c9d62b4d764ca028, type: 3}
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Vente
+    Clip: {fileID: 8300000, guid: 6eb672a36f222504cb027062430b6e83, type: 3}
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
