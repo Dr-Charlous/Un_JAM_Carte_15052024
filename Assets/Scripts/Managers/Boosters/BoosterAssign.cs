@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 namespace Managers.Boosters
@@ -19,7 +20,7 @@ namespace Managers.Boosters
             
             if (_dropNumber <= 0)
             {
-                Destroy(gameObject);
+                transform.DOScale(0, 0.1f).OnComplete(() => Destroy(gameObject));
             }
         }
 

@@ -44,8 +44,6 @@ namespace Managers.Fusions
 
                         currentCardsNb++;
                         
-                        _lastCardPosition = card.transform.position;
-
                         break;
                     }
 
@@ -74,16 +72,21 @@ namespace Managers.Fusions
 
         private IEnumerator MakeFusion(List<CardAssign> cards, FusionData currentFusion)
         {
-            // Debug.Log("FUSION");
             AudioManager.Instance.PlaySound("Fusion");
             
             foreach (CardAssign card in cards)
             {
                 if(card.TryGetComponent(out Card cardComponent))
                 {
-                    if (GameManager.Instance.CardManager.GetHigherStackParent(cardComponent) != cardComponent)
+                    Card higherStackParent = GameManager.Instance.CardManager.GetHigherStackParent(cardComponent);
+                    
+                    higherStackParent.DisplayTimer(currentFusion.Time);
+                    
+                    if (higherStackParent != cardComponent)
                     {
                         cardComponent.CanMove = false;
+                        
+                        _lastCardPosition = card.transform.position;
                     }
 
                     cardComponent.CanDropCardOnThis = false;
@@ -95,7 +98,7 @@ namespace Managers.Fusions
             foreach (CardAssign card in cards)
             {
                 StopAllCoroutines();
-                Destroy(card.gameObject);
+                card.transform.DOScale(0, 0.1f).OnComplete(() => Destroy(card.gameObject));
             }
 
             foreach (CardData card in currentFusion.Result)

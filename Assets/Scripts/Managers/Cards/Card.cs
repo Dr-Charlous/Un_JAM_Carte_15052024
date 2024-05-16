@@ -6,10 +6,12 @@ using DG.Tweening;
 using Managers;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
     public bool IsBeingDropped { get; set; }
+    public bool IsFusionning { get; set; }
     public bool CanMove { get; set; }
     public bool CanDropCardOnThis { get; set; }
     public Card ChildCard { get; set; }
@@ -19,9 +21,13 @@ public class Card : MonoBehaviour
     [Header("References")]
     [SerializeField] private BoxCollider2D _boxCollider2D;
     [SerializeField] private Transform _childTransform;
+    [SerializeField] private Image _timerFillImage;
 
     private readonly Tuple<float, float> _normalCollider = new Tuple<float, float>(0, 2.1f);
     private readonly Tuple<float, float> _reducedCollider = new Tuple<float, float>(0.8f, 0.45f);
+    
+    private float _timeLeftFusionning;
+    private float _timeTotalFusionning;
 
     private void Start()
     {
@@ -51,6 +57,7 @@ public class Card : MonoBehaviour
                 if (hit.TryGetComponent(out ShopManager shop))
                 {
                     DiscardParenting();
+                    
                     List<CardAssign> children = GameManager.Instance.CardManager.GetAllChildren(this);
                     shop.Shop(children);
                     
@@ -61,7 +68,9 @@ public class Card : MonoBehaviour
 
                 if (hit.CompareTag("Wall"))
                 {
-                    transform.position = InitPos;
+                    transform.DOKill();
+                    transform.DOMove(InitPos, 0.2f);
+                    
                     IsBeingDropped = false;
 
                     return;
@@ -77,10 +86,7 @@ public class Card : MonoBehaviour
                     continue;
                 }
 
-                if (ParentCard != null)
-                {
-                    DiscardParenting();
-                }
+                DiscardParenting();
 
                 HandleNewParent(card);
 
@@ -92,15 +98,9 @@ public class Card : MonoBehaviour
 
             if (hasNewParent == false)
             {
-                if (ParentCard != null)
-                {
-                    DiscardParenting();
-                }
+                DiscardParenting();
 
                 ChangeCollider(ChildCard == null ? _normalCollider.Item1 : _reducedCollider.Item1, ChildCard == null ? _normalCollider.Item2 : _reducedCollider.Item2);
-
-                ParentCard = null;
-                transform.parent = null;
             }
 
             HandleCombo(this);
@@ -177,9 +177,20 @@ public class Card : MonoBehaviour
             ParentCard.ChangeCollider(_normalCollider.Item1, _normalCollider.Item2);
             ParentCard.ChildCard = null;
             HandleCombo(ParentCard);
+            
+            ParentCard = null;
+            transform.parent = null;
         }
 
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+    }
+
+    public void DisplayTimer(float time)
+    {
+        _timerFillImage.transform.parent.gameObject.SetActive(true);
+        _timerFillImage.fillAmount = 1;
+
+        _timerFillImage.DOFillAmount(0, time);
     }
 
     private void OnDrawGizmos()

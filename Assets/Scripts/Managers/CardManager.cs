@@ -27,10 +27,11 @@ namespace Managers
         public void SpawnCard(Vector3 position, CardData card)
         {
             Vector2 randomPos = Random.insideUnitCircle * _maxSpawnRadius;
+            Vector2 point = randomPos.normalized * Random.Range(_minSpawnRadius, _maxSpawnRadius);
+            
             GameObject newCard = Instantiate(_cardPrefab, position, Quaternion.identity);
 
-            Vector2 point = randomPos.normalized * Random.Range(_minSpawnRadius, _maxSpawnRadius);
-
+            newCard.transform.DOScale(1, 0.1f);
             newCard.transform.DOJump(newCard.transform.position + new Vector3(point.x, point.y, 0), _jumpTweenStrength, 1,_jumpTweenDuration);
             newCard.GetComponent<CardAssign>().CardData = card;
                 
