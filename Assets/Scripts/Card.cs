@@ -187,30 +187,4 @@ public class Card : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(_boxCollider2D.bounds.center, _boxCollider2D.size);
     }
-
-    public void DoHoverCardScale()
-    {
-        CardManager cardManager = GameManager.Instance.CardManager;
-
-        _objectToScale.DOKill();
-        _objectToScale.DOScale(cardManager.HoverTweenStrength, cardManager.HoverTweenDuration);
-    }
-
-    public void DoMoveCardScale()
-    {
-        CardManager cardManager = GameManager.Instance.CardManager;
-
-        _objectToScale.DOKill();
-        _objectToScale.DOScale(cardManager.MoveTweenStrength, cardManager.MoveTweenDuration);
-    }
-
-    public Tween CancelCardScale()
-    {
-        CardManager cardManager = GameManager.Instance.CardManager;
-
-        _objectToScale.DOKill();
-        Tween scaleDownTween = _objectToScale.DOScale(_initScale, cardManager.HoverTweenDuration);
-
-        return scaleDownTween;
-    }
 }
