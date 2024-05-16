@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Managers.Fusions
@@ -9,7 +10,8 @@ namespace Managers.Fusions
     {
         [field:SerializeField] public FusionData[] FusionDatas { get; private set; }
 
-        [SerializeField] GameObject _cardPrefab;
+        [SerializeField] private GameObject _cardPrefab;
+        [SerializeField] private float _spawnCardRadius;
         
         public void HandleFusion(List<CardAssign> cards)
         {
@@ -95,7 +97,10 @@ namespace Managers.Fusions
 
             foreach (CardData card in currentFusion.Result)
             {
+                Vector2 randomPos = Random.insideUnitCircle * _spawnCardRadius;
                 GameObject newCard = Instantiate(_cardPrefab);
+
+                newCard.transform.DOJump(randomPos, GameManager.Instance.CardManager.JumpTweenStrength, 1, GameManager.Instance.CardManager.JumpTweenDuration);
                 newCard.GetComponent<CardAssign>().CardData = card;
             }
         }

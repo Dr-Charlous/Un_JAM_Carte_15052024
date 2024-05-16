@@ -13,6 +13,7 @@ public class Card : MonoBehaviour
     public bool CanDropCardOnThis { get; set; }
     public Card ChildCard { get; set; }
     public Card ParentCard { get; private set; }
+    public Vector2 InitPos { get; set; }
 
     [Header("References")] 
     [SerializeField] private BoxCollider2D _boxCollider2D;
@@ -21,13 +22,15 @@ public class Card : MonoBehaviour
 
     private Vector3 _initScale;
     
-    private readonly Tuple<float, float> _normalCollider = new Tuple<float, float>(0, 2.5f); 
-    private readonly Tuple<float, float> _reducedCollider = new Tuple<float, float>(1, 0.5f); 
+    private readonly Tuple<float, float> _normalCollider = new Tuple<float, float>(0, 2.1f); 
+    private readonly Tuple<float, float> _reducedCollider = new Tuple<float, float>(0.8f, 0.45f); 
 
     private void Start()
     {
         CanMove = true;
         CanDropCardOnThis = true;
+        
+        ChangeCollider(_normalCollider.Item1, _normalCollider.Item2);
         
         _initScale = transform.localScale;
     }
@@ -67,6 +70,14 @@ public class Card : MonoBehaviour
 
             foreach (Collider2D hit in hits)
             {
+                if (hit.CompareTag("Wall"))
+                {
+                    transform.position = InitPos;
+                    IsBeingDropped = false;
+                    
+                    return;
+                }
+                
                 if (CheckForCards(hit, out Card card))
                 {
                     continue;
