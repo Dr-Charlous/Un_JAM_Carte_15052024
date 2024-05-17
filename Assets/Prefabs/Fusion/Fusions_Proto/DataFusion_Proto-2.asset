@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 269ee70ad06239c499601423ce0e3ae0, type: 3}
-  m_Name: DataFusion_ConflitGitHub-4
+  m_Name: DataFusion_Proto-2
   m_EditorClassIdentifier: 
   Recipe:
-  - {fileID: 11400000, guid: 51e483bd600fc7545943ded4e3f7f9b1, type: 2}
-  - {fileID: 11400000, guid: 51e483bd600fc7545943ded4e3f7f9b1, type: 2}
+  - {fileID: 11400000, guid: 49234bd28718e5643887d01cd6f443d0, type: 2}
+  - {fileID: 11400000, guid: 44ed3c893299b2b44b171fa52ca02efc, type: 2}
   Result:
-  - {fileID: 11400000, guid: 1205db2b953ff5d45957f0f3ea110478, type: 2}
-  - {fileID: 11400000, guid: 51e483bd600fc7545943ded4e3f7f9b1, type: 2}
-  - {fileID: 11400000, guid: 51e483bd600fc7545943ded4e3f7f9b1, type: 2}
+  - {fileID: 11400000, guid: 284ec9b741b5f8c428eced8be09c0ee9, type: 2}
+  - {fileID: 11400000, guid: 44ed3c893299b2b44b171fa52ca02efc, type: 2}
+  - {fileID: 11400000, guid: 49234bd28718e5643887d01cd6f443d0, type: 2}
   Time: 3
