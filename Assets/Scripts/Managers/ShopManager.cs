@@ -73,7 +73,7 @@ namespace Managers
                         newCard.transform.DOJump(newPos, 1.15f, 1, 0.15f).OnComplete(() => newCard.IsBeingDropped = true);
                         newCard.GetComponent<CardAssign>().CardData = _cardDataMoney;
 
-                        GameManager.Instance.Coins.Add(newCard);
+                        GameManager.Instance.AddCoins(newCard);
 
                         await Task.Delay(200);
                     }
@@ -84,6 +84,7 @@ namespace Managers
                     UpdatePriceText();
 
                     GameManager.Instance.Coins.Remove(cardComponent);
+                    GameManager.Instance.UpdateCoinsUI();
 
                     if (_currentPrice <= 0)
                     {
