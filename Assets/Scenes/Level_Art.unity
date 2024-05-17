@@ -5514,7 +5514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01cab53e57f9a994a8d017915fefb190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinsNeededEndTurn: 15
+  _coinsNeededEndTurn: 20
   _coinIncrementPerTurn: 20
   _time: 180
   _timerText: {fileID: 652277015}

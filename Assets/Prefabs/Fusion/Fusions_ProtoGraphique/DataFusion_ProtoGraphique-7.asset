@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 269ee70ad06239c499601423ce0e3ae0, type: 3}
-  m_Name: DataFusion_FX-1
+  m_Name: DataFusion_ProtoGraphique-7
   m_EditorClassIdentifier: 
   Recipe:
   - {fileID: 11400000, guid: 5462cd612eceb094dae7c0fbc2791875, type: 2}
   - {fileID: 11400000, guid: d68281b2712486843a4435ea49e4630d, type: 2}
   Result:
-  - {fileID: 11400000, guid: 5d03b36efb361c646b032b0700a08746, type: 2}
+  - {fileID: 11400000, guid: 09920f6f17b58f145ba6f254d71043c4, type: 2}
   Time: 2
