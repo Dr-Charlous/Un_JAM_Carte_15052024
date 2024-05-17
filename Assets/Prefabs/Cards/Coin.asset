@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Coin
   m_EditorClassIdentifier: 
   NameCard: Money
-  SpriteCard: {fileID: 0}
+  SpriteCard: {fileID: 21300000, guid: c29125d2ce4abc64ea4d5d3b408bfe08, type: 3}
   ColorCard: {r: 1, g: 0.82689804, b: 0, a: 1}
   CanBeSold: 1
   CostSell: 1
