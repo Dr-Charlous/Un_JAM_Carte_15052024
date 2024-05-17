@@ -7,6 +7,7 @@ namespace Managers
     public class TimeManager : MonoBehaviour
     {
         [SerializeField] int _coinsNeededEndTurn;
+        [SerializeField] int _coinIncrementPerTurn;
         [SerializeField] float _time;
         [SerializeField] TMP_Text _timerText;
 
@@ -33,6 +34,7 @@ namespace Managers
             else if (!_isCheck)
             {
                 CheckEndTimer(_coinsNeededEndTurn);
+                _coinsNeededEndTurn += _coinIncrementPerTurn;
                 _isCheck = true;
             }
         }
