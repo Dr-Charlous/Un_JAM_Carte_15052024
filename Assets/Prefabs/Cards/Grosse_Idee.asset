@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Grosse_Idee
   m_EditorClassIdentifier: 
   NameCard: Grosse Idee
-  SpriteCard: {fileID: 0}
-  ColorCard: {r: 0, g: 0, b: 0, a: 0}
+  SpriteCard: {fileID: 21300000, guid: 4f9ef2c7f5d41734a8f5907b8b73a01d, type: 3}
+  ColorCard: {r: 1, g: 1, b: 1, a: 1}
   UseNumber: 1
   CostSell: 3
+  CardType: 0

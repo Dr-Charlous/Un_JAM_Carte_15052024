@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Feedback_Gameplay
   m_EditorClassIdentifier: 
   NameCard: Feedback Gameplay
-  SpriteCard: {fileID: 0}
-  ColorCard: {r: 0, g: 0, b: 0, a: 0}
+  SpriteCard: {fileID: 21300000, guid: c92ece7c5ad1aa243ae20cc7b77d9cc8, type: 3}
+  ColorCard: {r: 1, g: 1, b: 1, a: 1}
   UseNumber: 0
   CostSell: 4
+  CardType: 0

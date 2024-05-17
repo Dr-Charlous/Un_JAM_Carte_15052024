@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NameCard: Money
   SpriteCard: {fileID: 0}
-  ColorCard: {r: 1, g: 0.67560244, b: 0, a: 1}
+  ColorCard: {r: 1, g: 1, b: 1, a: 1}
   UseNumber: 0
   CostSell: 1
   CardType: 1

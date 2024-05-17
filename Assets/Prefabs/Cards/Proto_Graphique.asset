@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Proto_Graphique
   m_EditorClassIdentifier: 
   NameCard: Proto Graphique
-  SpriteCard: {fileID: 0}
-  ColorCard: {r: 0, g: 0, b: 0, a: 0}
+  SpriteCard: {fileID: 21300000, guid: 6a0db9e3859c0b545a873f86a3e1f12a, type: 3}
+  ColorCard: {r: 1, g: 1, b: 1, a: 1}
   UseNumber: 0
   CostSell: 4
+  CardType: 0

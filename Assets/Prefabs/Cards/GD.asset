@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: GD
   m_EditorClassIdentifier: 
   NameCard: GD
-  SpriteCard: {fileID: 0}
+  SpriteCard: {fileID: 21300000, guid: 7a76a56901680524ebaa4c98c9a21534, type: 3}
   ColorCard: {r: 1, g: 1, b: 1, a: 1}
   UseNumber: 3
   CostSell: 2
+  CardType: 0

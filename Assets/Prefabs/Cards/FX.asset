@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: FX
   m_EditorClassIdentifier: 
   NameCard: FX
-  SpriteCard: {fileID: 0}
-  ColorCard: {r: 0, g: 0, b: 0, a: 0}
+  SpriteCard: {fileID: 21300000, guid: b635236598a136c43b2abca1abef76f4, type: 3}
+  ColorCard: {r: 1, g: 1, b: 1, a: 1}
   UseNumber: 1
   CostSell: 2
+  CardType: 0

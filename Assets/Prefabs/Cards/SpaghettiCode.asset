@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SpaghettiCode
   m_EditorClassIdentifier: 
   NameCard: Spaghetti Code
-  SpriteCard: {fileID: 0}
-  ColorCard: {r: 0, g: 0, b: 0, a: 0}
+  SpriteCard: {fileID: 21300000, guid: 7056ffc09c33b674c9b6fa2f021a3d5c, type: 3}
+  ColorCard: {r: 1, g: 1, b: 1, a: 1}
   UseNumber: 0
   CostSell: 1
+  CardType: 0

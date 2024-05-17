@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Build
   m_EditorClassIdentifier: 
   NameCard: Build
-  SpriteCard: {fileID: 0}
-  ColorCard: {r: 0, g: 0, b: 0, a: 0}
+  SpriteCard: {fileID: 21300000, guid: a43e806a3a286714a9603c8d68050ecf, type: 3}
+  ColorCard: {r: 1, g: 1, b: 1, a: 1}
   UseNumber: 0
   CostSell: 0
+  CardType: 0

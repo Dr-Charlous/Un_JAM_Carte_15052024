@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Gith
   m_EditorClassIdentifier: 
   NameCard: Gith
-  SpriteCard: {fileID: 0}
-  ColorCard: {r: 0, g: 0, b: 0, a: 0}
+  SpriteCard: {fileID: 21300000, guid: 1aaf19f714facf846b74bb43b5fdd501, type: 3}
+  ColorCard: {r: 1, g: 1, b: 1, a: 1}
   UseNumber: 1
   CostSell: 2
+  CardType: 0

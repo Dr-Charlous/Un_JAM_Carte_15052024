@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Auto E
   m_EditorClassIdentifier: 
   NameCard: Auto E
-  SpriteCard: {fileID: 0}
-  ColorCard: {r: 0, g: 0, b: 0, a: 0}
+  SpriteCard: {fileID: 21300000, guid: 3ee9526342d613a4792700bc772f671b, type: 3}
+  ColorCard: {r: 1, g: 1, b: 1, a: 1}
   UseNumber: 0
   CostSell: 0
+  CardType: 0
