@@ -663,6 +663,8 @@ MonoBehaviour:
   _cardPrefab: {fileID: 8809009287316734942, guid: 0d31d7ff2db00414a8a0fdae62837ba9, type: 3}
   _boosterPrefab: {fileID: 6949328763987883628, guid: 92d7a9ab7ab86f346bfdbe6d1503861a, type: 3}
   _boosterPrice: 0
+  _coinsVFX: {fileID: 4262706712285467, guid: c30bbc7cec5e7574b80dc7c2fa3cfe28, type: 3}
+  _boosterVFX: {fileID: 1038927569109717558, guid: 6d14863669826e246a2615fb59034fc7, type: 3}
 --- !u!61 &4029224901567731431
 BoxCollider2D:
   m_ObjectHideFlags: 0

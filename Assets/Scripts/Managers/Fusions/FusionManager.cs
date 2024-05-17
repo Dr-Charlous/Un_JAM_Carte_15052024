@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Audio;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Managers.Fusions
@@ -10,6 +11,7 @@ namespace Managers.Fusions
     public class FusionManager : MonoBehaviour
     {
         [field:SerializeField] public FusionData[] FusionDatas { get; private set; }
+        [field: SerializeField] private GameObject _VFXFusion;
         
         private Vector3 _lastCardPosition;
         
@@ -74,7 +76,7 @@ namespace Managers.Fusions
         private IEnumerator MakeFusion(List<CardAssign> cards, FusionData currentFusion)
         {
             AudioManager.Instance.PlaySound("Fusion");
-            
+
             foreach (CardAssign card in cards)
             {
                 if(card.TryGetComponent(out Card cardComponent))
@@ -96,16 +98,20 @@ namespace Managers.Fusions
             
             yield return new WaitForSeconds(currentFusion.Time);
             
+            foreach (CardData card in currentFusion.Result)
+            {
+                GameManager.Instance.CardManager.SpawnCard(_lastCardPosition, card);
+            }
+
+            GameObject newVFX = Instantiate(_VFXFusion, _lastCardPosition, Quaternion.identity);
+            Destroy(newVFX, 2);
+            
             foreach (CardAssign card in cards)
             {
                 StopCoroutine(MakeFusion(cards, currentFusion));
                 card.transform.DOScale(0, 0.1f).OnComplete(() => Destroy(card.gameObject));
             }
 
-            foreach (CardData card in currentFusion.Result)
-            {
-                GameManager.Instance.CardManager.SpawnCard(_lastCardPosition, card);
-            }
         }
     }
 }

@@ -26,6 +26,8 @@ namespace Managers
         [SerializeField] private Card _cardPrefab;
         [SerializeField] private GameObject _boosterPrefab;
         [SerializeField] private int _boosterPrice;
+        [SerializeField] private GameObject _coinsVFX;
+        [SerializeField] private GameObject _boosterVFX;
 
         private int _currentPrice;
 
@@ -54,6 +56,7 @@ namespace Managers
                 {
                     for (int j = 0; j < cardAssign[i].CardData.CostSell; j++)
                     {
+                        cardAssign[i].transform.DOScale(0, 0.1f);
                         Card newCard = Instantiate(_cardPrefab, transform.position, Quaternion.identity);
 
                         newCard.transform.DOScale(1, 0.1f);
@@ -75,6 +78,9 @@ namespace Managers
 
                         GameManager.Instance.AddCoins(newCard);
 
+                        GameObject vfx = Instantiate(_coinsVFX, transform.position, Quaternion.identity);
+                        Destroy(vfx, 2);
+
                         await Task.Delay(200);
                     }
                 }
@@ -82,6 +88,7 @@ namespace Managers
                 {
                     _currentPrice--;
                     UpdatePriceText();
+                    cardAssign[i].transform.DOScale(0, 0.1f);
 
                     GameManager.Instance.Coins.Remove(cardComponent);
                     GameManager.Instance.UpdateCoinsUI();
@@ -97,9 +104,12 @@ namespace Managers
 
                         _currentPrice = _boosterPrice;
                         UpdatePriceText();
+
+                        GameObject vfx = Instantiate(_boosterVFX, transform.position, Quaternion.identity);
+                        Destroy(vfx, 1);
                     }
                 }
-                
+
                 await Task.Delay(200);
             }
 
