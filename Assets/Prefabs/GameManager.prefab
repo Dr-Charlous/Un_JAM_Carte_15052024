@@ -51,6 +51,8 @@ MonoBehaviour:
   isPersistant: 0
   <CardManager>k__BackingField: {fileID: 5289936037837254976}
   <FusionManager>k__BackingField: {fileID: 1480935021226105092}
+  <TimeManager>k__BackingField: {fileID: 0}
+  <MenuManager>k__BackingField: {fileID: 0}
 --- !u!114 &5289936037837254976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,7 +68,7 @@ MonoBehaviour:
   _interactiveLayers:
     serializedVersion: 2
     m_Bits: 72
-  _cardPrefab: {fileID: 4361350267299786379, guid: 0d31d7ff2db00414a8a0fdae62837ba9, type: 3}
+  _cardPrefab: {fileID: 8809009287316734942, guid: 0d31d7ff2db00414a8a0fdae62837ba9, type: 3}
   _minSpawnRadius: 2
   _maxSpawnRadius: 3
   _ySpawnOffset: -3
