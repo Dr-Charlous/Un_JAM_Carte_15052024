@@ -5514,9 +5514,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01cab53e57f9a994a8d017915fefb190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coinsNeededEndTurn: 40
-  _coinIncrementPerTurn: 0
-  _time: 80
+  _coinsNeededEndTurn: 15
+  _coinIncrementPerTurn: 20
+  _time: 180
   _timerText: {fileID: 652277015}
 --- !u!4 &1246494304
 Transform:
@@ -6336,7 +6336,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 98d6c3dfaed0c294c9eea47cbf32deb3, type: 2}
     - target: {fileID: 7265980596702154664, guid: e8efadfa2f2dcff4891da9aecc4226bf, type: 3}
       propertyPath: _boosterPrice
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7265980596702154664, guid: e8efadfa2f2dcff4891da9aecc4226bf, type: 3}
       propertyPath: <Type>k__BackingField
