@@ -16,5 +16,5 @@ MonoBehaviour:
   SpriteCard: {fileID: 21300000, guid: 4f9ef2c7f5d41734a8f5907b8b73a01d, type: 3}
   ColorCard: {r: 1, g: 1, b: 1, a: 1}
   CanBeSold: 1
-  CostSell: 3
+  CostSell: 2
   CardType: 0

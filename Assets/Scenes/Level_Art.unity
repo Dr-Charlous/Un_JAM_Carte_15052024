@@ -6508,7 +6508,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1480935021226105092, guid: ace88a4c3cf78194a8f90be9f09e3285, type: 3}
       propertyPath: <FusionDatas>k__BackingField.Array.size
-      value: 40
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 1480935021226105092, guid: ace88a4c3cf78194a8f90be9f09e3285, type: 3}
       propertyPath: <FusionDatas>k__BackingField.Array.data[0]
@@ -6670,6 +6670,30 @@ PrefabInstance:
       propertyPath: <FusionDatas>k__BackingField.Array.data[39]
       value: 
       objectReference: {fileID: 11400000, guid: 22c69beab3c5fb74fa5e389a7f565fe2, type: 2}
+    - target: {fileID: 1480935021226105092, guid: ace88a4c3cf78194a8f90be9f09e3285, type: 3}
+      propertyPath: <FusionDatas>k__BackingField.Array.data[40]
+      value: 
+      objectReference: {fileID: 11400000, guid: bf214448c188a324bb3c073b38def3f9, type: 2}
+    - target: {fileID: 1480935021226105092, guid: ace88a4c3cf78194a8f90be9f09e3285, type: 3}
+      propertyPath: <FusionDatas>k__BackingField.Array.data[41]
+      value: 
+      objectReference: {fileID: 11400000, guid: ca13b617fe287664285448ad78837718, type: 2}
+    - target: {fileID: 1480935021226105092, guid: ace88a4c3cf78194a8f90be9f09e3285, type: 3}
+      propertyPath: <FusionDatas>k__BackingField.Array.data[42]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d61ce883a22af141a86f94ca5236076, type: 2}
+    - target: {fileID: 1480935021226105092, guid: ace88a4c3cf78194a8f90be9f09e3285, type: 3}
+      propertyPath: <FusionDatas>k__BackingField.Array.data[43]
+      value: 
+      objectReference: {fileID: 11400000, guid: 731e68607e68ae8419ed7793315d909f, type: 2}
+    - target: {fileID: 1480935021226105092, guid: ace88a4c3cf78194a8f90be9f09e3285, type: 3}
+      propertyPath: <FusionDatas>k__BackingField.Array.data[44]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0017db11d90e2c94a8c13d8d5835224e, type: 2}
+    - target: {fileID: 1480935021226105092, guid: ace88a4c3cf78194a8f90be9f09e3285, type: 3}
+      propertyPath: <FusionDatas>k__BackingField.Array.data[45]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2d46c89502109c94e8d27617d7b89312, type: 2}
     - target: {fileID: 3050307645457765336, guid: ace88a4c3cf78194a8f90be9f09e3285, type: 3}
       propertyPath: _coinsText
       value: 
