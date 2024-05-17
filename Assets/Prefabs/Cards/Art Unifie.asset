@@ -15,6 +15,6 @@ MonoBehaviour:
   NameCard: Art Unifie
   SpriteCard: {fileID: 21300000, guid: 9a5ffd444cc2805409ad1d84aaceee06, type: 3}
   ColorCard: {r: 1, g: 1, b: 1, a: 1}
-  UseNumber: 0
+  CanBeSold: 1
   CostSell: 4
   CardType: 0

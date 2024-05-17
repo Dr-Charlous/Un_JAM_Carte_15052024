@@ -15,6 +15,6 @@ MonoBehaviour:
   NameCard: Gith
   SpriteCard: {fileID: 21300000, guid: 1aaf19f714facf846b74bb43b5fdd501, type: 3}
   ColorCard: {r: 1, g: 1, b: 1, a: 1}
-  UseNumber: 1
+  CanBeSold: 1
   CostSell: 2
   CardType: 0

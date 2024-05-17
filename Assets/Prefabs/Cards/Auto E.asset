@@ -15,6 +15,6 @@ MonoBehaviour:
   NameCard: Auto E
   SpriteCard: {fileID: 21300000, guid: 3ee9526342d613a4792700bc772f671b, type: 3}
   ColorCard: {r: 1, g: 1, b: 1, a: 1}
-  UseNumber: 0
-  CostSell: 0
+  CanBeSold: 0
+  CostSell: 3
   CardType: 0

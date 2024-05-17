@@ -15,6 +15,6 @@ MonoBehaviour:
   NameCard: DA
   SpriteCard: {fileID: 21300000, guid: 2171a31bc7d97ce4eb24bff729557486, type: 3}
   ColorCard: {r: 1, g: 1, b: 1, a: 1}
-  UseNumber: 1
+  CanBeSold: 1
   CostSell: 2
   CardType: 0

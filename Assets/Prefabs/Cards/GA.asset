@@ -15,6 +15,6 @@ MonoBehaviour:
   NameCard: GA
   SpriteCard: {fileID: 21300000, guid: 3951c6fafa3349f4ab2094032694244f, type: 3}
   ColorCard: {r: 1, g: 1, b: 1, a: 1}
-  UseNumber: 3
+  CanBeSold: 1
   CostSell: 1
   CardType: 0

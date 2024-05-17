@@ -15,6 +15,6 @@ MonoBehaviour:
   NameCard: Proto Graphique
   SpriteCard: {fileID: 21300000, guid: 6a0db9e3859c0b545a873f86a3e1f12a, type: 3}
   ColorCard: {r: 1, g: 1, b: 1, a: 1}
-  UseNumber: 0
+  CanBeSold: 1
   CostSell: 4
   CardType: 0

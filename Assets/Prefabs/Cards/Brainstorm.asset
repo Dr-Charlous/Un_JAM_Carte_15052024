@@ -15,6 +15,6 @@ MonoBehaviour:
   NameCard: Brainstorm
   SpriteCard: {fileID: 21300000, guid: 16c7ea4e7ce592547be095c3aa015fc7, type: 3}
   ColorCard: {r: 1, g: 1, b: 1, a: 1}
-  UseNumber: 2
+  CanBeSold: 1
   CostSell: 1
   CardType: 0

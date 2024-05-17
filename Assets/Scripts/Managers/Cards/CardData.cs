@@ -8,7 +8,7 @@ public class CardData : ScriptableObject
     public string NameCard;
     public Sprite SpriteCard;
     public Color ColorCard;
-    public int UseNumber;
+    public bool CanBeSold = true;
     public int CostSell;
     public CardType CardType = CardType.Card;
 }

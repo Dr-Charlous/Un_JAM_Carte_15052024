@@ -55,7 +55,8 @@ public class Card : MonoBehaviour
                 if (hit.TryGetComponent(out ShopManager shop))
                 {
                     if((shop.Type == ShopType.Booster && _cardAssign.CardData.CardType == CardType.Card) 
-                       || (shop.Type == ShopType.Coins && _cardAssign.CardData.CardType == CardType.Coin))
+                       || (shop.Type == ShopType.Coins && _cardAssign.CardData.CardType == CardType.Coin)
+                       || _cardAssign.CardData.CanBeSold == false)
                     {
                         CancelMove();
                         
