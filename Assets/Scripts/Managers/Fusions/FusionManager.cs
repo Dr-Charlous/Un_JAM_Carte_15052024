@@ -98,7 +98,7 @@ namespace Managers.Fusions
             
             foreach (CardAssign card in cards)
             {
-                // StopAllCoroutines();
+                StopCoroutine(MakeFusion(cards, currentFusion));
                 card.transform.DOScale(0, 0.1f).OnComplete(() => Destroy(card.gameObject));
             }
 
