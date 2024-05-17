@@ -28,8 +28,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8078797628280038755}
   - {fileID: 2655418172509350265}
+  - {fileID: 8078797628280038755}
   - {fileID: 4390352326732249910}
   - {fileID: 6096583623654513841}
   m_Father: {fileID: 2903068995862255732}
@@ -628,6 +628,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boxCollider2D: {fileID: 372252520736066306}
+  _spriteRenderer: {fileID: 8300416268138466834}
+  _charaSpriteRenderer: {fileID: 374764834390367626}
+  _dataCanvas: {fileID: 7479506993228249765}
   _childTransform: {fileID: 952646454429421024}
   _timerFillImage: {fileID: 3627088273633186863}
 --- !u!114 &3888255423657878243
