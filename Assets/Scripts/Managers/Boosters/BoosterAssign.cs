@@ -22,6 +22,11 @@ namespace Managers.Boosters
             {
                 transform.DOScale(0, 0.1f).OnComplete(() => Destroy(gameObject));
             }
+            else
+            {
+                transform.DOKill();
+                transform.DOPunchScale(Vector3.one * 0.2f, 0.1f);
+            }
         }
 
         private int CardDropper()
