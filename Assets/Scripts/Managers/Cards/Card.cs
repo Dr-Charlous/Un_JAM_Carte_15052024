@@ -23,6 +23,7 @@ public class Card : MonoBehaviour
     [SerializeField] private BoxCollider2D _boxCollider2D;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private SpriteRenderer _charaSpriteRenderer;
+    [SerializeField] private TMP_Text _coinText;
     [SerializeField] private Canvas _dataCanvas;
     [SerializeField] private Transform _childTransform;
     [SerializeField] private Image _timerFillImage;
@@ -36,6 +37,15 @@ public class Card : MonoBehaviour
         CanMove = true;
         CanDropCardOnThis = true;
         _cardAssign = GetComponent<CardAssign>();
+
+        if (_cardAssign.CardData.CardType == CardType.Coin || _cardAssign.CardData.CanBeSold == false)
+        {
+            _coinText.gameObject.SetActive(false);
+        }
+        else
+        {
+            _coinText.text = _cardAssign.CardData.CostSell.ToString();
+        }
 
         ChangeCollider(_normalCollider.Item1, _normalCollider.Item2);
     }
