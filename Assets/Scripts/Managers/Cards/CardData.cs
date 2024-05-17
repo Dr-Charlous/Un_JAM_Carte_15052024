@@ -10,4 +10,11 @@ public class CardData : ScriptableObject
     public Color ColorCard;
     public int UseNumber;
     public int CostSell;
+    public CardType CardType = CardType.Card;
+}
+
+public enum CardType
+{
+    Card,
+    Coin
 }

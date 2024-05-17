@@ -17,3 +17,4 @@ MonoBehaviour:
   ColorCard: {r: 1, g: 0.67560244, b: 0, a: 1}
   UseNumber: 0
   CostSell: 1
+  CardType: 1

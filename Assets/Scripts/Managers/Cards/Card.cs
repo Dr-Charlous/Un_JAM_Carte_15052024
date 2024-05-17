@@ -22,6 +22,7 @@ public class Card : MonoBehaviour
     [SerializeField] private Transform _childTransform;
     [SerializeField] private Image _timerFillImage;
 
+    private CardAssign _cardAssign;
     private readonly Tuple<float, float> _normalCollider = new Tuple<float, float>(0, 2.1f);
     private readonly Tuple<float, float> _reducedCollider = new Tuple<float, float>(0.8f, 0.45f);
 
@@ -29,6 +30,7 @@ public class Card : MonoBehaviour
     {
         CanMove = true;
         CanDropCardOnThis = true;
+        _cardAssign = GetComponent<CardAssign>();
 
         ChangeCollider(_normalCollider.Item1, _normalCollider.Item2);
     }
@@ -52,6 +54,14 @@ public class Card : MonoBehaviour
             {
                 if (hit.TryGetComponent(out ShopManager shop))
                 {
+                    if((shop.Type == ShopType.Booster && _cardAssign.CardData.CardType == CardType.Card) 
+                       || (shop.Type == ShopType.Coins && _cardAssign.CardData.CardType == CardType.Coin))
+                    {
+                        CancelMove();
+                        
+                        return;
+                    }
+                    
                     DiscardParenting();
                     
                     List<CardAssign> children = GameManager.Instance.CardManager.GetAllChildren(this);
@@ -64,10 +74,7 @@ public class Card : MonoBehaviour
 
                 if (hit.CompareTag("Wall"))
                 {
-                    transform.DOKill();
-                    transform.DOMove(InitPos, 0.2f);
-                    
-                    IsBeingDropped = false;
+                    CancelMove();
 
                     return;
                 }
@@ -103,6 +110,12 @@ public class Card : MonoBehaviour
 
             IsBeingDropped = false;
         }
+    }
+
+    public void CancelMove()
+    {
+        transform.DOKill();
+        transform.DOMove(InitPos, 0.2f);
     }
 
     private void HandleCombo(Card card)
