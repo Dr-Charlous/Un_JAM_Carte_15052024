@@ -14,6 +14,8 @@ namespace Managers
         float _timeSet;
         bool _isCheck;
 
+        public int CoinsNeededEndTurn => _coinsNeededEndTurn;
+
         private void Start()
         {
             Initialize();
@@ -33,8 +35,8 @@ namespace Managers
             }
             else if (!_isCheck)
             {
-                CheckEndTimer(_coinsNeededEndTurn);
-                _coinsNeededEndTurn += _coinIncrementPerTurn;
+                CheckEndTimer(CoinsNeededEndTurn);
+                _coinsNeededEndTurn = CoinsNeededEndTurn + _coinIncrementPerTurn;
                 _isCheck = true;
             }
         }

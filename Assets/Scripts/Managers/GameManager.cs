@@ -36,8 +36,7 @@ namespace Managers
 
         public void UpdateCoinsUI()
         {
-
-            _coinsText.text = Coins.Count.ToString();
+            _coinsText.text = $"{Coins.Count.ToString()} / {TimeManager.CoinsNeededEndTurn}";
         }
     }
 }
