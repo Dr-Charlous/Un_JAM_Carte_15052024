@@ -5,6 +5,7 @@ using TMPro;
 
 public class CardAssign : MonoBehaviour
 {
+    public Card CardComponent { get; set; }
     public CardData CardData;
     
     [SerializeField] TextMeshProUGUI _textComponent;
@@ -13,6 +14,8 @@ public class CardAssign : MonoBehaviour
 
     private void Start()
     {
+        CardComponent = GetComponent<Card>();
+        
         if (_textComponent != null)
             _textComponent.text = CardData.NameCard;
 

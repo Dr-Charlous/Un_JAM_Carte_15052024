@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Audio;
 using DG.Tweening;
 using Managers;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ using UnityEngine.UI;
 public class Card : MonoBehaviour
 {
     public bool IsBeingDropped { get; set; }
+    public bool IsBeingDrag { get; set; }
     public bool CanMove { get; set; }
     public bool CanDropCardOnThis { get; set; }
     public Card ChildCard { get; set; }
@@ -19,6 +21,9 @@ public class Card : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private BoxCollider2D _boxCollider2D;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private SpriteRenderer _charaSpriteRenderer;
+    [SerializeField] private Canvas _dataCanvas;
     [SerializeField] private Transform _childTransform;
     [SerializeField] private Image _timerFillImage;
 
@@ -37,7 +42,20 @@ public class Card : MonoBehaviour
 
     private void Update()
     {
+        HandleBeingDrag();
         HandleBeingDroppedOnCard();
+    }
+
+    private void HandleBeingDrag()
+    {
+        if (IsBeingDrag)
+        {
+            if (ChildCard == null)
+            {
+                ChangeOrderInLayer(40);
+                IsBeingDrag = false;
+            }
+        }
     }
 
     private void HandleBeingDroppedOnCard()
@@ -45,7 +63,7 @@ public class Card : MonoBehaviour
         if (IsBeingDropped)
         {
             AudioManager.Instance.PlaySound("Poser");
-            
+
             Collider2D[] hits = Physics2D.OverlapBoxAll(_boxCollider2D.bounds.center, _boxCollider2D.size, 0, GameManager.Instance.CardManager.InteractiveLayers);
 
             bool hasNewParent = false;
@@ -54,20 +72,20 @@ public class Card : MonoBehaviour
             {
                 if (hit.TryGetComponent(out ShopManager shop))
                 {
-                    if((shop.Type == ShopType.Booster && _cardAssign.CardData.CardType == CardType.Card) 
-                       || (shop.Type == ShopType.Coins && _cardAssign.CardData.CardType == CardType.Coin)
-                       || _cardAssign.CardData.CanBeSold == false)
+                    if ((shop.Type == ShopType.Booster && _cardAssign.CardData.CardType == CardType.Card)
+                        || (shop.Type == ShopType.Coins && _cardAssign.CardData.CardType == CardType.Coin)
+                        || _cardAssign.CardData.CanBeSold == false)
                     {
                         CancelMove();
-                        
+
                         return;
                     }
-                    
+
                     DiscardParenting();
-                    
+
                     List<CardAssign> children = GameManager.Instance.CardManager.GetAllChildren(this);
                     shop.Shop(children);
-                    
+
                     IsBeingDropped = false;
 
                     return;
@@ -109,8 +127,23 @@ public class Card : MonoBehaviour
 
             HandleCombo(this);
 
+            var stack = GetStack(this);
+            for (int i = 0; i < stack.Count; i++)
+            {
+                stack[i].CardComponent.ChangeOrderInLayer(i);
+            }
+
             IsBeingDropped = false;
         }
+    }
+
+    public void ChangeOrderInLayer(int indexInList)
+    {
+        int layer = indexInList <= 0 ? indexInList : indexInList + 2;
+
+        _spriteRenderer.sortingOrder = layer;
+        _charaSpriteRenderer.sortingOrder = layer + 1;
+        _dataCanvas.sortingOrder = layer + 2;
     }
 
     public void CancelMove()
@@ -121,7 +154,7 @@ public class Card : MonoBehaviour
 
     private void HandleCombo(Card card)
     {
-        List<CardAssign> cards = GetChildren(card);
+        List<CardAssign> cards = GetStack(card);
 
         if (cards.Count > 1)
         {
@@ -129,7 +162,7 @@ public class Card : MonoBehaviour
         }
     }
 
-    private List<CardAssign> GetChildren(Card card)
+    private List<CardAssign> GetStack(Card card)
     {
         Card higherParent = GameManager.Instance.CardManager.GetHigherStackParent(card);
         return GameManager.Instance.CardManager.GetAllChildren(higherParent);
@@ -187,7 +220,7 @@ public class Card : MonoBehaviour
             ParentCard.ChangeCollider(_normalCollider.Item1, _normalCollider.Item2);
             ParentCard.ChildCard = null;
             HandleCombo(ParentCard);
-            
+
             ParentCard = null;
             transform.parent = null;
         }

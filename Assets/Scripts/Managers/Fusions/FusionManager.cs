@@ -61,6 +61,7 @@ namespace Managers.Fusions
                 if (CheckForCardNb(currentCardsNb, currentFusion) && isInCondition)
                 {
                     StartCoroutine(MakeFusion(cards, currentFusion));
+                    break;
                 }
             }
         }
@@ -97,7 +98,7 @@ namespace Managers.Fusions
             
             foreach (CardAssign card in cards)
             {
-                StopAllCoroutines();
+                // StopAllCoroutines();
                 card.transform.DOScale(0, 0.1f).OnComplete(() => Destroy(card.gameObject));
             }
 

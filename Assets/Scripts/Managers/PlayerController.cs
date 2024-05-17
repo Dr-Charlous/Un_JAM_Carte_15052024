@@ -103,6 +103,7 @@ namespace Managers
             if (_currentCard != null)
             {
                 _currentCard.transform.position = new Vector3(currentPos.x, currentPos.y , -1);
+                _currentCard.IsBeingDrag = true;
             }
         }
 
