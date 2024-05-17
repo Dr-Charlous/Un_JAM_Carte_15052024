@@ -4823,7 +4823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7265980596702154664, guid: e8efadfa2f2dcff4891da9aecc4226bf, type: 3}
       propertyPath: _boosterPrice
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7265980596702154664, guid: e8efadfa2f2dcff4891da9aecc4226bf, type: 3}
       propertyPath: <Type>k__BackingField
