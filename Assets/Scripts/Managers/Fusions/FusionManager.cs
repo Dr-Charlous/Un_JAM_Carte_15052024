@@ -10,11 +10,11 @@ namespace Managers.Fusions
 {
     public class FusionManager : MonoBehaviour
     {
-        [field:SerializeField] public FusionData[] FusionDatas { get; private set; }
+        [field: SerializeField] public FusionData[] FusionDatas { get; private set; }
         [field: SerializeField] private GameObject _VFXFusion;
-        
+
         private Vector3 _lastCardPosition;
-        
+
         public void HandleFusion(List<CardAssign> cards)
         {
             foreach (FusionData currentFusion in FusionDatas)
@@ -45,7 +45,7 @@ namespace Managers.Fusions
                         isInCondition = true;
 
                         currentCardsNb++;
-                        
+
                         break;
                     }
 
@@ -79,39 +79,38 @@ namespace Managers.Fusions
 
             foreach (CardAssign card in cards)
             {
-                if(card.TryGetComponent(out Card cardComponent))
+                if (card.TryGetComponent(out Card cardComponent))
                 {
                     Card higherStackParent = GameManager.Instance.CardManager.GetHigherStackParent(cardComponent);
-                    
+
                     higherStackParent.DisplayTimer(currentFusion.Time);
-                    
+
                     if (higherStackParent != cardComponent)
                     {
                         cardComponent.CanMove = false;
-                        
+
                         _lastCardPosition = card.transform.position;
                     }
 
                     cardComponent.CanDropCardOnThis = false;
                 }
             }
-            
+
             yield return new WaitForSeconds(currentFusion.Time);
-            
+
             foreach (CardData card in currentFusion.Result)
             {
                 GameManager.Instance.CardManager.SpawnCard(_lastCardPosition, card);
             }
-
-            GameObject newVFX = Instantiate(_VFXFusion, _lastCardPosition, Quaternion.identity);
-            Destroy(newVFX, 2);
             
             foreach (CardAssign card in cards)
             {
-                StopCoroutine(MakeFusion(cards, currentFusion));
-                card.transform.DOScale(0, 0.1f).OnComplete(() => Destroy(card.gameObject));
+                // card.transform.DOScale(0, 0.1f).OnComplete(() => Destroy(card.gameObject, 2));
+                Destroy(card.gameObject);
             }
 
+            GameObject newVFX = Instantiate(_VFXFusion, _lastCardPosition, Quaternion.identity);
+            Destroy(newVFX, 2);
         }
     }
 }
